@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@700;800&amp;family=Hanken+Grotesk:wght@400;500&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            background-color: #131314;
+            color: #e5e2e3;
+            -webkit-font-smoothing: antialiased;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .grid-overlay {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "border-hairline": "rgba(255, 255, 255, 0.08)",
+                        "on-surface": "#e5e2e3",
+                        "surface-bright": "#3a393a",
+                        "tertiary-fixed-dim": "#c8c6c3",
+                        "terminal-cursor": "#C2F94A",
+                        "on-surface-variant": "#c3c9b0",
+                        "secondary-fixed-dim": "#c8c5cb",
+                        "on-secondary": "#303034",
+                        "on-tertiary-fixed": "#1b1c1a",
+                        "surface-container-highest": "#353436",
+                        "background": "#131314",
+                        "on-primary-fixed-variant": "#374e00",
+                        "inverse-primary": "#4b6700",
+                        "surface-variant": "#353436",
+                        "secondary-fixed": "#e4e1e7",
+                        "text-primary": "#F4F3EE",
+                        "outline-variant": "#434935",
+                        "surface": "#131314",
+                        "on-tertiary-fixed-variant": "#474744",
+                        "on-primary-container": "#506e00",
+                        "on-secondary-container": "#b6b4ba",
+                        "error-container": "#93000a",
+                        "text-muted": "#A1A1AA",
+                        "surface-container-lowest": "#0e0e0f",
+                        "error": "#ffb4ab",
+                        "on-primary": "#253600",
+                        "inverse-surface": "#e5e2e3",
+                        "on-error": "#690005",
+                        "tertiary-container": "#e5e2df",
+                        "outline": "#8d937c",
+                        "on-background": "#e5e2e3",
+                        "on-tertiary-container": "#656462",
+                        "surface-container": "#201f20",
+                        "on-error-container": "#ffdad6",
+                        "surface-dim": "#131314",
+                        "tertiary": "#ffffff",
+                        "secondary": "#c8c5cb",
+                        "primary-container": "#bef446",
+                        "tertiary-fixed": "#e5e2df",
+                        "primary-fixed-dim": "#a3d728",
+                        "on-secondary-fixed-variant": "#47464b",
+                        "surface-container-low": "#1c1b1c",
+                        "surface-tint": "#a3d728",
+                        "on-tertiary": "#30302e",
+                        "secondary-container": "#47464b",
+                        "on-primary-fixed": "#141f00",
+                        "on-secondary-fixed": "#1b1b1f",
+                        "primary-fixed": "#bef446",
+                        "inverse-on-surface": "#313031",
+                        "surface-container-high": "#2a2a2b",
+                        "primary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "grid-gutter": "1.5rem",
+                        "section-gap": "4rem",
+                        "max-width": "1180px",
+                        "card-padding": "2rem",
+                        "component-gap": "2rem"
+                    },
+                    "fontFamily": {
+                        "label-mono": ["JetBrains Mono"],
+                        "headline-lg": ["Epilogue"],
+                        "body-md": ["Hanken Grotesk"],
+                        "display-xl": ["Epilogue"],
+                        "display-xl-mobile": ["Epilogue"],
+                        "body-sm": ["Hanken Grotesk"],
+                        "label-code": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "label-mono": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "headline-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "display-xl": ["92px", {"lineHeight": "1.0", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                        "display-xl-mobile": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "label-code": ["13px", {"lineHeight": "1.4", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<nav class="bg-surface/80 dark:bg-surface/80 backdrop-blur-xl docked full-width top-0 sticky border-b border-hairline flat no shadows z-50">
+<div class="flex justify-between items-center w-full px-6 py-4 max-w-max-width mx-auto">
+<div class="font-display-xl-mobile text-body-md font-bold text-on-surface flex items-center gap-2 after:content-[''] after:w-2 after:h-2 after:bg-primary-fixed-dim after:rounded-full after:animate-pulse">
+                jordan.dev
+            </div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-on-surface-variant" onclick="toggleMenu()">menu</button>
+</div>
+</div>
+</nav>
+<!-- SideNavBar (Mobile Overlay) -->
+<aside class="fixed inset-0 z-[60] flex flex-col w-full md:hidden bg-surface-container-highest dark:bg-surface-container-highest translate-x-full transition-transform duration-300" id="mobile-menu">
+<div class="flex justify-between items-center p-6 border-b border-hairline">
+<span class="font-display-xl-mobile text-headline-lg font-bold text-on-surface">jordan.dev</span>
+<button class="material-symbols-outlined text-on-surface" onclick="toggleMenu()">close</button>
+</div>
+<div class="flex flex-col p-6 gap-2">
+<div class="text-on-surface-variant font-medium p-4 flex items-center gap-4 hover:bg-surface-variant transition-all rounded-lg">
+<span class="material-symbols-outlined">home</span> Home
+            </div>
+<div class="bg-primary-container text-on-primary-container rounded-lg p-4 flex items-center gap-4 Active: translate-x-1">
+<span class="material-symbols-outlined">person</span> About
+            </div>
+<div class="text-on-surface-variant font-medium p-4 flex items-center gap-4 hover:bg-surface-variant transition-all rounded-lg">
+<span class="material-symbols-outlined">work</span> Work
+            </div>
+<div class="text-on-surface-variant font-medium p-4 flex items-center gap-4 hover:bg-surface-variant transition-all rounded-lg">
+<span class="material-symbols-outlined">terminal</span> Services
+            </div>
+<div class="text-on-surface-variant font-medium p-4 flex items-center gap-4 hover:bg-surface-variant transition-all rounded-lg">
+<span class="material-symbols-outlined">article</span> Blog
+            </div>
+</div>
+<div class="mt-auto p-6 border-t border-hairline">
+<button class="w-full bg-primary-container text-on-primary-container py-4 font-bold rounded-lg">Hire me</button>
+</div>
+</aside>
+<main class="relative overflow-x-hidden pt-8 pb-16 px-5 max-w-max-width mx-auto">
+<!-- Grid Background Decor -->
+<div class="absolute inset-0 grid-overlay -z-10 pointer-events-none opacity-20"></div>
+<!-- Section: Profile Header -->
+<section class="flex flex-col gap-8 mb-section-gap">
+<div class="relative w-full aspect-square max-w-[320px] mx-auto overflow-hidden rounded-xl border border-hairline">
+<img alt="Jordan Developer" class="w-full h-full object-cover grayscale contrast-125 brightness-90" data-alt="A professional portrait of a male developer in a dark studio setting. He is wearing a charcoal designer hoodie, looking directly at the camera with a calm, confident expression. The lighting is cinematic and low-key, emphasizing sharp textures and subtle shadows, perfectly matching a dark-mode technical aesthetic with high contrast and realistic grain." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiLxCh_DwzLs83384igi-OyNlBkP1m6qpr4uLmItnkWOUhXaJbyEGfa-lQlu-ijpX-UqbFwiSoDMgDtK4_-EHXWHhDvBcrDTklsl8iKiqlQ3jsrW_DKPT6oKmSCUBm8D6pYZxffRAsZy12k-RPgLObfK4neGTmB8QmmxdgavEppNy5puyrCIeFa5H-Wg3qq5vAIv_rns6YTZyArAyiw3GeOWJC_ImD2O0XWC7gtg72C_X7xRil2mwFRyWv7aVkfBVSPlXh4tsFtv8o"/>
+</div>
+<div class="flex flex-col gap-4">
+<span class="font-label-mono text-label-mono text-primary-fixed-dim uppercase tracking-widest">// 02 — about</span>
+<h1 class="font-display-xl-mobile text-display-xl-mobile text-on-surface">A developer who handles both sides of the stack.</h1>
+</div>
+<div class="flex flex-col gap-6">
+<p class="font-body-md text-body-md text-on-surface-variant">
+                    I specialize in building performant web applications that bridge the gap between complex backend logic and pixel-perfect frontend experiences. My approach is methodical, treating every line of code as part of a larger, durable architecture.
+                </p>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                    I thrive on "legacy rescue"—taking tangled, undocumented codebases and transforming them into modern, scalable systems. Whether it's optimizing SQL queries or crafting smooth 60fps animations, I ensure technical integrity at every layer.
+                </p>
+</div>
+</section>
+<!-- Section: Core Stack -->
+<section class="flex flex-col gap-6 mb-section-gap">
+<h2 class="font-label-mono text-label-mono text-primary-fixed-dim uppercase tracking-widest">// core stack</h2>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1.5 border border-hairline font-label-mono text-label-mono text-on-surface-variant rounded-full">TypeScript</span>
+<span class="px-3 py-1.5 border border-hairline font-label-mono text-label-mono text-on-surface-variant rounded-full">React/Next.js</span>
+<span class="px-3 py-1.5 border border-hairline font-label-mono text-label-mono text-on-surface-variant rounded-full">Node.js</span>
+<span class="px-3 py-1.5 border border-hairline font-label-mono text-label-mono text-on-surface-variant rounded-full">PostgreSQL</span>
+<span class="px-3 py-1.5 border border-hairline font-label-mono text-label-mono text-on-surface-variant rounded-full">GraphQL</span>
+<span class="px-3 py-1.5 border border-hairline font-label-mono text-label-mono text-on-surface-variant rounded-full">Docker</span>
+<span class="px-3 py-1.5 border border-hairline font-label-mono text-label-mono text-on-surface-variant rounded-full">AWS</span>
+<span class="px-3 py-1.5 border border-hairline font-label-mono text-label-mono text-on-surface-variant rounded-full">Tailwind CSS</span>
+</div>
+</section>
+<!-- Section: Timeline -->
+<section class="flex flex-col gap-8 mb-section-gap border-l border-hairline ml-2 pl-6 relative">
+<div class="relative">
+<div class="absolute -left-[30px] top-1.5 w-4 h-4 rounded-full bg-primary-fixed-dim border-4 border-background"></div>
+<div class="flex flex-col">
+<span class="font-label-mono text-label-mono text-primary-fixed-dim">2024 →</span>
+<h3 class="font-body-md text-body-md font-bold text-on-surface">Independent Full-Stack Developer</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Consulting for high-growth startups on architecture and scalability.</p>
+</div>
+</div>
+<div class="relative">
+<div class="absolute -left-[30px] top-1.5 w-3 h-3 rounded-full bg-surface-container-highest border-2 border-background"></div>
+<div class="flex flex-col">
+<span class="font-label-mono text-label-mono text-on-surface-variant">2022</span>
+<h3 class="font-body-md text-body-md font-bold text-on-surface">Senior Frontend Engineer</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Leading UI/UX engineering for a FinTech platform processing $2M+/mo.</p>
+</div>
+</div>
+<div class="relative">
+<div class="absolute -left-[30px] top-1.5 w-3 h-3 rounded-full bg-surface-container-highest border-2 border-background"></div>
+<div class="flex flex-col">
+<span class="font-label-mono text-label-mono text-on-surface-variant">2020</span>
+<h3 class="font-body-md text-body-md font-bold text-on-surface">Full-Stack Developer</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Building internal tools and automated workflows for data analysis teams.</p>
+</div>
+</div>
+</section>
+<!-- Section: CTA Stack -->
+<section class="flex flex-col gap-4">
+<button class="w-full bg-primary-fixed-dim text-on-primary py-4 px-6 font-bold flex justify-center items-center gap-2 rounded-lg active:scale-95 transition-transform">
+<span class="material-symbols-outlined">download</span> Download CV
+            </button>
+<button class="w-full border border-hairline text-on-surface py-4 px-6 font-bold flex justify-center items-center gap-2 rounded-lg active:scale-95 transition-transform">
+                Get in touch <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface dark:bg-surface border-t border-hairline mt-section-gap full-width">
+<div class="flex flex-col justify-between items-center w-full px-6 py-12 max-w-max-width mx-auto gap-8">
+<div class="font-display-xl text-headline-lg text-on-surface opacity-10">JORDAN.DEV</div>
+<div class="flex gap-6">
+<a class="font-label-mono text-label-mono uppercase text-on-surface-variant hover:text-on-surface transition-colors" href="#">Github</a>
+<a class="font-label-mono text-label-mono uppercase text-on-surface-variant hover:text-on-surface transition-colors" href="#">LinkedIn</a>
+<a class="font-label-mono text-label-mono uppercase text-on-surface-variant hover:text-on-surface transition-colors" href="#">Email</a>
+</div>
+<div class="font-label-mono text-label-mono uppercase text-on-surface-variant text-center opacity-50">
+                © 2024 JORDAN.DEV — BUILT WITH PRECISION
+            </div>
+</div>
+</footer>
+<script>
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            if (menu.classList.contains('translate-x-full')) {
+                menu.classList.remove('translate-x-full');
+                menu.classList.add('translate-x-0');
+            } else {
+                menu.classList.add('translate-x-full');
+                menu.classList.remove('translate-x-0');
+            }
+        }
+
+        // Micro-interaction for atmospheric effect
+        document.addEventListener('mousemove', (e) => {
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            document.querySelector('.grid-overlay').style.transform = `translate(${x * 10}px, ${y * 10}px)`;
+        });
+    </script>
+</body></html>

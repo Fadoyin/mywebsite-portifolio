@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@700;800&amp;family=Hanken+Grotesk:wght@400;500&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-high": "#2a2a2b",
+                    "tertiary": "#ffffff",
+                    "surface-container-highest": "#353436",
+                    "on-secondary-fixed": "#1b1b1f",
+                    "on-tertiary-fixed-variant": "#474744",
+                    "surface": "#131314",
+                    "on-surface-variant": "#c3c9b0",
+                    "on-secondary-fixed-variant": "#47464b",
+                    "tertiary-fixed-dim": "#c8c6c3",
+                    "surface-container-low": "#1c1b1c",
+                    "on-primary-fixed-variant": "#374e00",
+                    "on-tertiary-container": "#656462",
+                    "primary-fixed-dim": "#a3d728",
+                    "surface-container": "#201f20",
+                    "inverse-on-surface": "#313031",
+                    "inverse-surface": "#e5e2e3",
+                    "tertiary-fixed": "#e5e2df",
+                    "surface-variant": "#353436",
+                    "on-secondary-container": "#b6b4ba",
+                    "on-primary": "#253600",
+                    "terminal-cursor": "#C2F94A",
+                    "surface-tint": "#a3d728",
+                    "surface-bright": "#3a393a",
+                    "error": "#ffb4ab",
+                    "surface-container-lowest": "#0e0e0f",
+                    "secondary": "#c8c5cb",
+                    "on-error": "#690005",
+                    "outline": "#8d937c",
+                    "on-background": "#e5e2e3",
+                    "primary": "#ffffff",
+                    "on-tertiary-fixed": "#1b1c1a",
+                    "text-muted": "#A1A1AA",
+                    "on-primary-container": "#506e00",
+                    "on-tertiary": "#30302e",
+                    "outline-variant": "#434935",
+                    "primary-fixed": "#bef446",
+                    "primary-container": "#bef446",
+                    "secondary-container": "#47464b",
+                    "background": "#131314",
+                    "on-secondary": "#303034",
+                    "text-primary": "#F4F3EE",
+                    "on-surface": "#e5e2e3",
+                    "inverse-primary": "#4b6700",
+                    "error-container": "#93000a",
+                    "on-error-container": "#ffdad6",
+                    "secondary-fixed-dim": "#c8c5cb",
+                    "tertiary-container": "#e5e2df",
+                    "on-primary-fixed": "#141f00",
+                    "border-hairline": "rgba(255, 255, 255, 0.08)",
+                    "secondary-fixed": "#e4e1e7",
+                    "surface-dim": "#131314"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "max-width": "1180px",
+                    "grid-gutter": "1.5rem",
+                    "component-gap": "2rem",
+                    "card-padding": "2rem",
+                    "section-gap": "8rem"
+            },
+            "fontFamily": {
+                    "display-xl-mobile": ["Epilogue"],
+                    "label-code": ["JetBrains Mono"],
+                    "display-xl": ["Epilogue"],
+                    "body-md": ["Hanken Grotesk"],
+                    "headline-lg": ["Epilogue"],
+                    "label-mono": ["JetBrains Mono"],
+                    "body-sm": ["Hanken Grotesk"]
+            },
+            "fontSize": {
+                    "display-xl-mobile": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "label-code": ["13px", {"lineHeight": "1.4", "fontWeight": "400"}],
+                    "display-xl": ["92px", {"lineHeight": "1.0", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-mono": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bg-grid {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        }
+        .animate-blink {
+            animation: blink 1s step-end infinite;
+        }
+        @keyframes blink {
+            from, to { opacity: 1; }
+            50% { opacity: 0; }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background selection:bg-primary-container selection:text-on-primary-container min-h-screen">
+<!-- Top Navigation Bar (Shared Component) -->
+<nav class="bg-surface/80 dark:bg-surface/80 backdrop-blur-xl docked full-width top-0 sticky border-b border-hairline flat no shadows z-50">
+<div class="flex justify-between items-center w-full px-6 py-4 max-w-max-width mx-auto">
+<div class="font-display-xl-mobile text-body-md font-bold text-on-surface flex items-center gap-2 after:content-[''] after:w-2 after:h-2 after:bg-primary-fixed-dim after:rounded-full after:animate-pulse">Taiwo Fadoyin</div>
+<div class="hidden md:flex items-center gap-8 font-body-md text-body-md uppercase tracking-wider">
+<a class="text-on-surface-variant font-medium hover:text-primary-fixed-dim transition-colors duration-200" href="#">Home</a>
+<a class="text-on-surface-variant font-medium hover:text-primary-fixed-dim transition-colors duration-200" href="#">About</a>
+<a class="text-on-surface-variant font-medium hover:text-primary-fixed-dim transition-colors duration-200" href="#">Work</a>
+<a class="text-on-surface-variant font-medium hover:text-primary-fixed-dim transition-colors duration-200" href="#">Services</a>
+<a class="text-on-surface-variant font-medium hover:text-primary-fixed-dim transition-colors duration-200" href="#">Blog</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary-fixed-dim transition-colors">dark_mode</button>
+<button class="bg-primary-fixed-dim text-on-primary font-bold px-4 py-2 rounded-lg hover:scale-105 active:scale-95 transition-all">Hire me</button>
+</div>
+</div>
+</nav>
+<!-- Side Navigation Bar (Mobile Only - Shared Component) -->
+<div class="fixed inset-0 z-[60] flex flex-col w-full md:hidden translate-x-full transition-transform duration-300 hidden" id="side-nav">
+<div class="absolute inset-0 bg-surface/90 backdrop-blur-md" onclick="toggleNav()"></div>
+<div class="relative ml-auto w-4/5 h-full bg-surface-container-highest border-l border-hairline shadow-2xl flex flex-col p-6">
+<div class="flex justify-between items-center mb-12">
+<span class="font-display-xl-mobile text-headline-lg font-bold text-on-surface">jordan.dev</span>
+<button class="material-symbols-outlined" onclick="toggleNav()">close</button>
+</div>
+<div class="flex flex-col gap-2 flex-grow">
+<a class="text-on-surface-variant p-4 flex items-center gap-4 hover:bg-surface-variant rounded-lg transition-all font-label-mono text-label-mono uppercase" href="#">
+<span class="material-symbols-outlined">home</span> Home
+                </a>
+<a class="text-on-surface-variant p-4 flex items-center gap-4 hover:bg-surface-variant rounded-lg transition-all font-label-mono text-label-mono uppercase" href="#">
+<span class="material-symbols-outlined">person</span> About
+                </a>
+<a class="text-on-surface-variant p-4 flex items-center gap-4 hover:bg-surface-variant rounded-lg transition-all font-label-mono text-label-mono uppercase" href="#">
+<span class="material-symbols-outlined">work</span> Work
+                </a>
+<a class="text-on-surface-variant p-4 flex items-center gap-4 hover:bg-surface-variant rounded-lg transition-all font-label-mono text-label-mono uppercase" href="#">
+<span class="material-symbols-outlined">terminal</span> Services
+                </a>
+<a class="text-on-surface-variant p-4 flex items-center gap-4 hover:bg-surface-variant rounded-lg transition-all font-label-mono text-label-mono uppercase" href="#">
+<span class="material-symbols-outlined">article</span> Blog
+                </a>
+</div>
+<button class="mt-auto bg-primary-container text-on-primary-container rounded-lg p-4 font-bold flex items-center justify-center gap-4">
+                Hire me <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+<main class="relative bg-grid min-h-screen pt-12">
+<div class="max-w-max-width mx-auto px-6">
+<!-- Contact Screen Section -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-start py-12 lg:py-24">
+<!-- Left Column -->
+<div class="lg:col-span-5 space-y-12">
+<div class="space-y-4">
+<span class="font-label-mono text-label-mono text-primary-fixed-dim uppercase tracking-[0.2em]">
+                            // 06 — contact
+                        </span>
+<h1 class="font-display-xl-mobile lg:font-display-xl text-display-xl-mobile lg:text-display-xl text-on-surface">
+                            Ready to start a project?
+                        </h1>
+<p class="font-body-md text-body-md text-text-muted max-w-md">
+                            I'm currently accepting new projects for Q3 2024. Whether you're a startup or an established enterprise, let's build something exceptional.
+                        </p>
+</div>
+<div class="flex flex-col gap-4">
+<a class="group flex items-center justify-between p-5 rounded-xl border border-hairline bg-surface hover:border-primary-fixed-dim transition-all" href="#">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center">
+<span class="material-symbols-outlined text-primary-fixed-dim">calendar_today</span>
+</div>
+<div>
+<p class="font-label-mono text-[10px] text-text-muted uppercase">Scheduling</p>
+<p class="font-body-md text-on-surface font-medium">Book a discovery call</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-text-muted group-hover:text-primary-fixed-dim group-hover:translate-x-1 transition-all">arrow_forward</span>
+</a>
+<a class="group flex items-center justify-between p-5 rounded-xl border border-hairline bg-surface hover:border-primary-fixed-dim transition-all" href="mailto:hello@taiwofadoyin.com">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center">
+<span class="material-symbols-outlined text-primary-fixed-dim">mail</span>
+</div>
+<div>
+<p class="font-label-mono text-[10px] text-text-muted uppercase">Direct Email</p>
+<p class="font-body-md text-on-surface font-medium">hello@jordan.dev</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-text-muted group-hover:text-primary-fixed-dim group-hover:translate-x-1 transition-all">arrow_forward</span>
+</a>
+<a class="group flex items-center justify-between p-5 rounded-xl border border-hairline bg-surface hover:border-primary-fixed-dim transition-all" href="#">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center">
+<span class="material-symbols-outlined text-primary-fixed-dim">share</span>
+</div>
+<div>
+<p class="font-label-mono text-[10px] text-text-muted uppercase">Professional</p>
+<p class="font-body-md text-on-surface font-medium">Connect on LinkedIn</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-text-muted group-hover:text-primary-fixed-dim group-hover:translate-x-1 transition-all">arrow_forward</span>
+</a>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-2 h-2 rounded-full bg-terminal-cursor animate-pulse"></div>
+<span class="font-label-mono text-label-mono text-on-surface-variant uppercase">Available for hire — Estimated response: 4h</span>
+</div>
+</div>
+<!-- Right Column (Form) -->
+<div class="lg:col-span-7">
+<div class="relative group" id="form-container">
+<!-- Browser Mockup Header -->
+<div class="bg-surface-container-high rounded-t-xl border-x border-t border-hairline px-4 py-3 flex items-center gap-2">
+<div class="flex gap-1.5">
+<div class="w-3 h-3 rounded-full bg-error/40"></div>
+<div class="w-3 h-3 rounded-full bg-primary-fixed-dim/40"></div>
+<div class="w-3 h-3 rounded-full bg-terminal-cursor/40"></div>
+</div>
+<div class="mx-auto font-label-mono text-[10px] text-text-muted uppercase tracking-widest">
+                                contact_form.jsx
+                            </div>
+</div>
+<!-- Form Content -->
+<div class="bg-surface border border-hairline p-8 lg:p-12 rounded-b-xl shadow-2xl relative overflow-hidden">
+<form class="space-y-8" id="contact-form" onsubmit="handleFormSubmit(event)">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="space-y-2">
+<label class="font-label-mono text-label-mono text-on-surface-variant uppercase tracking-wider block">const name =</label>
+<input class="w-full bg-surface-container border border-hairline focus:border-terminal-cursor outline-none p-4 font-body-md text-on-surface rounded-lg transition-all placeholder:text-on-surface-variant/30" placeholder="'Enter your name'" required="" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-mono text-label-mono text-on-surface-variant uppercase tracking-wider block">const email =</label>
+<input class="w-full bg-surface-container border border-hairline focus:border-terminal-cursor outline-none p-4 font-body-md text-on-surface rounded-lg transition-all placeholder:text-on-surface-variant/30" placeholder="'your@email.com'" required="" type="email"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-label-mono text-label-mono text-on-surface-variant uppercase tracking-wider block">const project_type =</label>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+<label class="cursor-pointer">
+<input checked="" class="hidden peer" name="type" type="radio"/>
+<div class="p-3 border border-hairline rounded-lg text-center font-label-mono text-label-mono text-on-surface-variant peer-checked:bg-primary-fixed-dim peer-checked:text-on-primary transition-all">WEB APP</div>
+</label>
+<label class="cursor-pointer">
+<input class="hidden peer" name="type" type="radio"/>
+<div class="p-3 border border-hairline rounded-lg text-center font-label-mono text-label-mono text-on-surface-variant peer-checked:bg-primary-fixed-dim peer-checked:text-on-primary transition-all">DESIGN</div>
+</label>
+<label class="cursor-pointer">
+<input class="hidden peer" name="type" type="radio"/>
+<div class="p-3 border border-hairline rounded-lg text-center font-label-mono text-label-mono text-on-surface-variant peer-checked:bg-primary-fixed-dim peer-checked:text-on-primary transition-all">AI/LLM</div>
+</label>
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-label-mono text-label-mono text-on-surface-variant uppercase tracking-wider block">const message =</label>
+<textarea class="w-full bg-surface-container border border-hairline focus:border-terminal-cursor outline-none p-4 font-body-md text-on-surface rounded-lg transition-all placeholder:text-on-surface-variant/30 resize-none" placeholder="'Tell me about your vision...'" required="" rows="4"></textarea>
+</div>
+<button class="w-full bg-primary-fixed-dim text-on-primary font-bold py-5 rounded-lg flex items-center justify-center gap-3 hover:gap-5 transition-all active:scale-[0.98]" type="submit">
+                                    Send message <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</form>
+<!-- Success State (Hidden by default) -->
+<div class="absolute inset-0 bg-surface flex flex-col items-center justify-center p-12 text-center opacity-0 pointer-events-none transition-opacity duration-500" id="success-state">
+<div class="w-20 h-20 rounded-full bg-primary-fixed-dim flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-4xl text-on-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg text-on-surface mb-2">Message Sent!</h3>
+<p class="font-body-md text-text-muted mb-8 max-w-sm">
+                                    Your transmission was received successfully. I'll review the project requirements and get back to you within 24 hours.
+                                </p>
+<button class="font-label-mono text-label-mono text-primary-fixed-dim uppercase border border-primary-fixed-dim px-6 py-3 rounded-lg hover:bg-primary-fixed-dim hover:text-on-primary transition-all" onclick="resetForm()">
+                                    Send another one
+                                </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Footer (Shared Component) -->
+<footer class="bg-surface border-t border-hairline mt-section-gap">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-6 py-12 max-w-max-width mx-auto">
+<div class="font-display-xl text-headline-lg text-on-surface opacity-10 mb-8 md:mb-0">TAIWO FADOYIN</div>
+<div class="flex flex-col md:flex-row items-center gap-8 font-label-mono text-label-mono uppercase">
+<div class="flex gap-6">
+<a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#">Github</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#">LinkedIn</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#">Twitter</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#">Email</a>
+</div>
+<div class="text-on-surface-variant opacity-50 text-[10px]">© 2024 TAIWO FADOYIN — BUILT WITH PRECISION</div>
+</div>
+</div>
+</footer>
+<script>
+        function toggleNav() {
+            const nav = document.getElementById('side-nav');
+            if (nav.classList.contains('hidden')) {
+                nav.classList.remove('hidden');
+                setTimeout(() => nav.classList.remove('translate-x-full'), 10);
+            } else {
+                nav.classList.add('translate-x-full');
+                setTimeout(() => nav.classList.add('hidden'), 300);
+            }
+        }
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const form = document.getElementById('contact-form');
+            const success = document.getElementById('success-state');
+            
+            // Artificial delay to simulate processing
+            const button = form.querySelector('button');
+            const originalContent = button.innerHTML;
+            button.innerHTML = '<span class="material-symbols-outlined animate-spin">progress_activity</span> Sending...';
+            button.disabled = true;
+
+            setTimeout(() => {
+                form.style.opacity = '0';
+                success.classList.remove('pointer-events-none');
+                success.classList.remove('opacity-0');
+                success.classList.add('opacity-100');
+            }, 1200);
+        }
+
+        function resetForm() {
+            const form = document.getElementById('contact-form');
+            const success = document.getElementById('success-state');
+            const button = form.querySelector('button');
+
+            form.reset();
+            form.style.opacity = '1';
+            button.innerHTML = 'Send message <span class="material-symbols-outlined">arrow_forward</span>';
+            button.disabled = false;
+            
+            success.classList.add('pointer-events-none');
+            success.classList.add('opacity-0');
+            success.classList.remove('opacity-100');
+        }
+    </script>
+</body></html>

@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@700;800&amp;family=Hanken+Grotesk:wght@400;500&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container-high": "#2a2a2b",
+                      "tertiary": "#ffffff",
+                      "surface-container-highest": "#353436",
+                      "on-secondary-fixed": "#1b1b1f",
+                      "on-tertiary-fixed-variant": "#474744",
+                      "surface": "#131314",
+                      "on-surface-variant": "#c3c9b0",
+                      "on-secondary-fixed-variant": "#47464b",
+                      "tertiary-fixed-dim": "#c8c6c3",
+                      "surface-container-low": "#1c1b1c",
+                      "on-primary-fixed-variant": "#374e00",
+                      "on-tertiary-container": "#656462",
+                      "primary-fixed-dim": "#a3d728",
+                      "surface-container": "#201f20",
+                      "inverse-on-surface": "#313031",
+                      "inverse-surface": "#e5e2e3",
+                      "tertiary-fixed": "#e5e2df",
+                      "surface-variant": "#353436",
+                      "on-secondary-container": "#b6b4ba",
+                      "on-primary": "#253600",
+                      "terminal-cursor": "#C2F94A",
+                      "surface-tint": "#a3d728",
+                      "surface-bright": "#3a393a",
+                      "error": "#ffb4ab",
+                      "surface-container-lowest": "#0e0e0f",
+                      "secondary": "#c8c5cb",
+                      "on-error": "#690005",
+                      "outline": "#8d937c",
+                      "on-background": "#e5e2e3",
+                      "primary": "#ffffff",
+                      "on-tertiary-fixed": "#1b1c1a",
+                      "text-muted": "#A1A1AA",
+                      "on-primary-container": "#506e00",
+                      "on-tertiary": "#30302e",
+                      "outline-variant": "#434935",
+                      "primary-fixed": "#bef446",
+                      "primary-container": "#bef446",
+                      "secondary-container": "#47464b",
+                      "background": "#131314",
+                      "on-secondary": "#303034",
+                      "text-primary": "#F4F3EE",
+                      "on-surface": "#e5e2e3",
+                      "inverse-primary": "#4b6700",
+                      "error-container": "#93000a",
+                      "on-error-container": "#ffdad6",
+                      "secondary-fixed-dim": "#c8c5cb",
+                      "tertiary-container": "#e5e2df",
+                      "on-primary-fixed": "#141f00",
+                      "border-hairline": "rgba(255, 255, 255, 0.08)",
+                      "secondary-fixed": "#e4e1e7",
+                      "surface-dim": "#131314"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "max-width": "1180px",
+                      "grid-gutter": "1.5rem",
+                      "component-gap": "2rem",
+                      "card-padding": "2rem",
+                      "section-gap": "8rem"
+              },
+              "fontFamily": {
+                      "display-xl-mobile": ["Epilogue"],
+                      "label-code": ["JetBrains Mono"],
+                      "display-xl": ["Epilogue"],
+                      "body-md": ["Hanken Grotesk"],
+                      "headline-lg": ["Epilogue"],
+                      "label-mono": ["JetBrains Mono"],
+                      "body-sm": ["Hanken Grotesk"]
+              },
+              "fontSize": {
+                      "display-xl-mobile": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                      "label-code": ["13px", {"lineHeight": "1.4", "fontWeight": "400"}],
+                      "display-xl": ["92px", {"lineHeight": "1.0", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                      "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "headline-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "label-mono": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                      "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .bg-grid {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        }
+        .cursor-blink {
+            animation: blink 1s step-end infinite;
+        }
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+        .browser-mockup::before {
+            content: "";
+            display: block;
+            height: 24px;
+            background: #2a2a2b;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 0.5rem 0.5rem 0 0;
+            padding: 0 12px;
+            background-image: radial-gradient(circle, #ff5f56 4px, transparent 5px),
+                              radial-gradient(circle, #ffbd2e 4px, transparent 5px),
+                              radial-gradient(circle, #27c93f 4px, transparent 5px);
+            background-size: 14px 14px;
+            background-repeat: no-repeat;
+            background-position: 12px center, 32px center, 52px center;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md selection:bg-primary-fixed-dim selection:text-black">
+<!-- Top Navigation -->
+<nav class="bg-surface/80 dark:bg-surface/80 backdrop-blur-xl docked full-width top-0 sticky border-b border-hairline z-50">
+<div class="flex justify-between items-center w-full px-6 py-4 max-w-max-width mx-auto">
+<div class="font-display-xl-mobile text-body-md font-bold text-on-surface flex items-center gap-2 after:content-[''] after:w-2 after:h-2 after:bg-primary-fixed-dim after:rounded-full after:animate-pulse">Taiwo Fadoyin</div>
+<div class="hidden md:flex items-center gap-8 font-body-md text-body-md uppercase tracking-wider">
+<a class="text-on-surface-variant font-medium hover:text-primary-fixed-dim transition-colors duration-200" href="#">Home</a>
+<a class="text-on-surface-variant font-medium hover:text-primary-fixed-dim transition-colors duration-200" href="#">About</a>
+<a class="text-primary-fixed-dim font-bold border-b border-primary-fixed-dim pb-1" href="#">Work</a>
+<a class="text-on-surface-variant font-medium hover:text-primary-fixed-dim transition-colors duration-200" href="#">Services</a>
+<a class="text-on-surface-variant font-medium hover:text-primary-fixed-dim transition-colors duration-200" href="#">Blog</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary-fixed-dim transition-colors">dark_mode</button>
+<button class="bg-primary-fixed-dim text-black font-bold px-4 py-2 rounded uppercase text-body-sm hover:scale-95 transition-transform">Hire me</button>
+<button class="md:hidden material-symbols-outlined" id="menu-toggle">menu</button>
+</div>
+</div>
+</nav>
+<!-- Side Nav Mobile Drawer (Hidden by default) -->
+<div class="fixed inset-0 z-[60] flex flex-col w-full md:hidden bg-surface-container-highest translate-x-full transition-transform duration-300" id="side-nav">
+<div class="p-6 flex justify-between items-center border-b border-hairline">
+<div class="font-display-xl-mobile text-headline-lg font-bold text-on-surface">Taiwo Fadoyin</div>
+<button class="material-symbols-outlined text-3xl" onclick="toggleMenu()">close</button>
+</div>
+<div class="flex flex-col p-4 gap-2 font-label-mono text-label-mono">
+<a class="text-on-surface-variant p-4 flex items-center gap-4 hover:bg-surface-variant transition-all" href="#">
+<span class="material-symbols-outlined">home</span> Home
+            </a>
+<a class="text-on-surface-variant p-4 flex items-center gap-4 hover:bg-surface-variant transition-all" href="#">
+<span class="material-symbols-outlined">person</span> About
+            </a>
+<a class="bg-primary-container text-on-primary-container rounded-lg p-4 flex items-center gap-4 translate-x-1" href="#">
+<span class="material-symbols-outlined">work</span> Work
+            </a>
+<a class="text-on-surface-variant p-4 flex items-center gap-4 hover:bg-surface-variant transition-all" href="#">
+<span class="material-symbols-outlined">terminal</span> Services
+            </a>
+<a class="text-on-surface-variant p-4 flex items-center gap-4 hover:bg-surface-variant transition-all" href="#">
+<span class="material-symbols-outlined">article</span> Blog
+            </a>
+</div>
+<div class="mt-auto p-6 border-t border-hairline">
+<p class="font-label-mono text-on-surface-variant mb-4">// Available for hire</p>
+<button class="w-full bg-primary-fixed-dim text-black font-bold py-4 rounded uppercase">Hire me</button>
+</div>
+</div>
+<!-- Main Content -->
+<main class="max-w-max-width mx-auto px-6 py-section-gap bg-grid">
+<!-- Header Section -->
+<header class="mb-16">
+<p class="font-label-mono text-primary-fixed-dim mb-4 tracking-[0.2em] uppercase">// 03 — selected work</p>
+<h1 class="font-display-xl text-display-xl text-on-surface mb-12 max-md:text-display-xl-mobile">
+                Things I've <span class="text-primary-fixed-dim italic">shipped</span><span class="text-terminal-cursor cursor-blink">_</span>
+</h1>
+<!-- Filter Chips -->
+<div class="flex flex-wrap gap-3">
+<button class="px-6 py-2 bg-primary-fixed-dim text-black font-bold font-label-mono text-label-mono uppercase rounded-full">All</button>
+<button class="px-6 py-2 border border-hairline text-on-surface-variant hover:border-primary-fixed-dim hover:text-primary-fixed-dim font-label-mono text-label-mono uppercase rounded-full transition-all">Web apps</button>
+<button class="px-6 py-2 border border-hairline text-on-surface-variant hover:border-primary-fixed-dim hover:text-primary-fixed-dim font-label-mono text-label-mono uppercase rounded-full transition-all">APIs &amp; backend</button>
+<button class="px-6 py-2 border border-hairline text-on-surface-variant hover:border-primary-fixed-dim hover:text-primary-fixed-dim font-label-mono text-label-mono uppercase rounded-full transition-all">Tools</button>
+</div>
+</header>
+<!-- Work Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-grid-gutter">
+<!-- Project 1: Ledgerly -->
+<article class="group bg-surface-container border border-hairline rounded-lg overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-2 hover:border-primary-fixed-dim/40">
+<div class="browser-mockup relative aspect-video bg-surface-container-low overflow-hidden">
+<img alt="Ledgerly Financial Dashboard" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500" data-alt="A clean, professional dark mode dashboard for a financial application named Ledgerly. The UI features sophisticated data visualizations, including sleek line charts in electric lime green and charcoal gray, clean typography using a sans-serif font, and a structured sidebar. The atmosphere is technical and authoritative, illuminated with a focused digital glow in a high-performance terminal aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8pcmmO2eIrqq2yaT4RsUX8m2li8rMNvEEDACx2XjqsQH1FjGTpShbX_-SqvlYzndGYWvj9WABs3lW9d3QD4EBm7IygbZ6nNUzYdI1O8la7QzXmHxx5oDzzhZCgClU_g2E12RBKTgGJaef1Nm4RQIN612cNHkc3KcrB2cPeS_xed5k-Rf4bJjME9A21ABn6RuaaPlaLV4WyY-7Krgr2zpdgxZVv07sMKAxNCWRe5-ox2fLBD0CUFphpkYaEW3MmnpNSulN-pVlSXyH"/>
+</div>
+<div class="p-card-padding flex flex-col flex-grow">
+<span class="font-label-mono text-label-mono text-primary-fixed-dim mb-2">// WEB APP</span>
+<h3 class="font-headline-lg text-headline-lg text-on-surface mb-3 group-hover:text-primary-fixed-dim transition-colors">Ledgerly</h3>
+<p class="text-on-surface-variant text-body-md mb-6">A high-performance double-entry accounting engine designed for high-volume SaaS platforms.</p>
+<div class="flex flex-wrap gap-2 mb-8">
+<span class="px-2 py-1 bg-surface-variant font-label-mono text-[10px] text-on-surface-variant border border-hairline uppercase">React</span>
+<span class="px-2 py-1 bg-surface-variant font-label-mono text-[10px] text-on-surface-variant border border-hairline uppercase">Node.js</span>
+<span class="px-2 py-1 bg-surface-variant font-label-mono text-[10px] text-on-surface-variant border border-hairline uppercase">PostgreSQL</span>
+</div>
+<div class="mt-auto flex gap-6">
+<a class="flex items-center gap-1 font-label-mono text-label-mono text-on-surface hover:text-primary-fixed-dim transition-colors" href="#">
+                            LIVE DEMO <span class="material-symbols-outlined text-sm">north_east</span>
+</a>
+<a class="flex items-center gap-1 font-label-mono text-label-mono text-on-surface hover:text-primary-fixed-dim transition-colors" href="#">
+                            GITHUB <span class="material-symbols-outlined text-sm">code</span>
+</a>
+</div>
+</div>
+</article>
+<!-- Project 2: PayBridge -->
+<article class="group bg-surface-container border border-hairline rounded-lg overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-2 hover:border-primary-fixed-dim/40">
+<div class="browser-mockup relative aspect-video bg-surface-container-low overflow-hidden">
+<img alt="PayBridge API Gateway" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500" data-alt="A detailed technical schematic and visualization of an API gateway named PayBridge. The image shows a dark mode code editor interface with JSON data structures and glowing circuit-like connection lines in electric lime. The aesthetic is hyper-transparent and technical, evoking a sense of reliability and methodical precision for a backend payment infrastructure." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmU199N0Km5LxOEoRdlzGuW_6LSK19G-cRPTuksIUIDUwTdmn_UK7m65RAJXYOOja3TjfiXv1hUKFv4oRQL4WH77-TfiLIOS_4kF11aPi0jeOwbd7zWj5D9zz8fztatftJBE5rtWkX017TtZqAwjDm6u0PjGh7jknfHkM2Jrg28-aDhGSWSukZp6hWzRKoPgCE1hxNHJ6jQkuOw-gU5v5tdnWZD7297He_dd7USRaNnzHfwzJ3xgMbigGOtyd7T2Qi4bs5uaef1anD"/>
+</div>
+<div class="p-card-padding flex flex-col flex-grow">
+<span class="font-label-mono text-label-mono text-primary-fixed-dim mb-2">// API &amp; BACKEND</span>
+<h3 class="font-headline-lg text-headline-lg text-on-surface mb-3 group-hover:text-primary-fixed-dim transition-colors">PayBridge</h3>
+<p class="text-on-surface-variant text-body-md mb-6">Unified payment gateway abstraction layer supporting 12+ international payment providers.</p>
+<div class="flex flex-wrap gap-2 mb-8">
+<span class="px-2 py-1 bg-surface-variant font-label-mono text-[10px] text-on-surface-variant border border-hairline uppercase">Go</span>
+<span class="px-2 py-1 bg-surface-variant font-label-mono text-[10px] text-on-surface-variant border border-hairline uppercase">gRPC</span>
+<span class="px-2 py-1 bg-surface-variant font-label-mono text-[10px] text-on-surface-variant border border-hairline uppercase">Redis</span>
+</div>
+<div class="mt-auto flex gap-6">
+<a class="flex items-center gap-1 font-label-mono text-label-mono text-on-surface hover:text-primary-fixed-dim transition-colors" href="#">
+                            LIVE DEMO <span class="material-symbols-outlined text-sm">north_east</span>
+</a>
+<a class="flex items-center gap-1 font-label-mono text-label-mono text-on-surface hover:text-primary-fixed-dim transition-colors" href="#">
+                            GITHUB <span class="material-symbols-outlined text-sm">code</span>
+</a>
+</div>
+</div>
+</article>
+<!-- Project 3: Roomly -->
+<article class="group bg-surface-container border border-hairline rounded-lg overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-2 hover:border-primary-fixed-dim/40">
+<div class="browser-mockup relative aspect-video bg-surface-container-low overflow-hidden">
+<img alt="Roomly Booking Platform" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500" data-alt="A minimalist mobile app UI for a booking platform named Roomly. The design uses a dark theme with large high-quality photography of modern architectural spaces. The layout is a two-column grid showing availability calendars and sleek 'book now' buttons in electric lime. The mood is serene and technologically advanced, with soft grain and realistic lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtMAlpzmiTbJxGDtRBJn3UD1_QzRGQxsFvRyjhfS8V1JWO9tWgu5uHuxXJsNLPAmjYgOshFNO-1DIsf-sTpxuVU6Yy_ZBolDmi8ENm-KIkQVs06LM8_hzhmnbytbl8N6oYoD7zUZDWlcxm2xH2uOD_E6BbIRanbV_WRtLtPo_WrW98wD046l5oKUStC7xyFcbjD5mA1q61K5PiEchZ3yu0DKdBGUra0DnpakHlGPuvPqrOaN96lKTO-7Q9pE8dzIeU03RkCcOXJCd4"/>
+</div>
+<div class="p-card-padding flex flex-col flex-grow">
+<span class="font-label-mono text-label-mono text-primary-fixed-dim mb-2">// WEB APP</span>
+<h3 class="font-headline-lg text-headline-lg text-on-surface mb-3 group-hover:text-primary-fixed-dim transition-colors">Roomly</h3>
+<p class="text-on-surface-variant text-body-md mb-6">A real-time workspace booking engine with interactive floorplans and occupancy sensors.</p>
+<div class="flex flex-wrap gap-2 mb-8">
+<span class="px-2 py-1 bg-surface-variant font-label-mono text-[10px] text-on-surface-variant border border-hairline uppercase">Next.js</span>
+<span class="px-2 py-1 bg-surface-variant font-label-mono text-[10px] text-on-surface-variant border border-hairline uppercase">Tailwind</span>
+<span class="px-2 py-1 bg-surface-variant font-label-mono text-[10px] text-on-surface-variant border border-hairline uppercase">Prisma</span>
+</div>
+<div class="mt-auto flex gap-6">
+<a class="flex items-center gap-1 font-label-mono text-label-mono text-on-surface hover:text-primary-fixed-dim transition-colors" href="#">
+                            LIVE DEMO <span class="material-symbols-outlined text-sm">north_east</span>
+</a>
+<a class="flex items-center gap-1 font-label-mono text-label-mono text-on-surface hover:text-primary-fixed-dim transition-colors" href="#">
+                            GITHUB <span class="material-symbols-outlined text-sm">code</span>
+</a>
+</div>
+</div>
+</article>
+<!-- Project 4: envcheck -->
+<article class="group bg-surface-container border border-hairline rounded-lg overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-2 hover:border-primary-fixed-dim/40">
+<div class="browser-mockup relative aspect-video bg-surface-container-low overflow-hidden">
+<img alt="envcheck CLI Tool" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500" data-alt="A command-line interface (CLI) terminal window showing the output of a tool named envcheck. The text is monospace, highlighted with electric lime for successful environment variable checks and red for missing ones. The background is a deep charcoal gray with 1px grid lines, reflecting a high-performance developer tool aesthetic that is methodical and reliable." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD46FxaL200WAvu52NkAGQkCsrIyQ2ml-buslHOpi1XCpqiFoO2kPkJwydkc8z9RmjX_F6k3uwsSNtVWPOJ7TX55SDKdi-JFrOyJHmMGrFakVC-0ph50whdqPp5SkcFNyDghAMxMzXsskXdebWU121H_DBUQy22TEnLso2oN7bBr_ZTUqvjeCzX7bq3qcKKJHLWOYKKBlSMmGnpq5ztw0mHVS5zZOO0tNINXA-OScoIiaaGfQYFgShZ1oFAFMxdX1LqqTDvCnmpA_IU"/>
+</div>
+<div class="p-card-padding flex flex-col flex-grow">
+<span class="font-label-mono text-label-mono text-primary-fixed-dim mb-2">// TOOLS</span>
+<h3 class="font-headline-lg text-headline-lg text-on-surface mb-3 group-hover:text-primary-fixed-dim transition-colors">envcheck</h3>
+<p class="text-on-surface-variant text-body-md mb-6">CLI utility for auditing and validating environment variable security across cloud environments.</p>
+<div class="flex flex-wrap gap-2 mb-8">
+<span class="px-2 py-1 bg-surface-variant font-label-mono text-[10px] text-on-surface-variant border border-hairline uppercase">Rust</span>
+<span class="px-2 py-1 bg-surface-variant font-label-mono text-[10px] text-on-surface-variant border border-hairline uppercase">AWS SDK</span>
+<span class="px-2 py-1 bg-surface-variant font-label-mono text-[10px] text-on-surface-variant border border-hairline uppercase">YAML</span>
+</div>
+<div class="mt-auto flex gap-6">
+<a class="flex items-center gap-1 font-label-mono text-label-mono text-on-surface hover:text-primary-fixed-dim transition-colors" href="#">
+                            LIVE DEMO <span class="material-symbols-outlined text-sm">north_east</span>
+</a>
+<a class="flex items-center gap-1 font-label-mono text-label-mono text-on-surface hover:text-primary-fixed-dim transition-colors" href="#">
+                            GITHUB <span class="material-symbols-outlined text-sm">code</span>
+</a>
+</div>
+</div>
+</article>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface dark:bg-surface border-t border-hairline mt-section-gap">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-6 py-12 max-w-max-width mx-auto">
+<div class="font-display-xl text-headline-lg text-on-surface opacity-10 mb-8 md:mb-0">Taiwo Fadoyin</div>
+<div class="flex flex-col items-center md:items-end gap-6">
+<div class="flex gap-8 font-label-mono text-label-mono uppercase">
+<a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#">Github</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#">LinkedIn</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#">Twitter</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#">Email</a>
+</div>
+<p class="font-label-mono text-label-mono uppercase text-on-surface-variant/60">© 2024 TAIWO FADOYIN — BUILT WITH PRECISION</p>
+</div>
+</div>
+</footer>
+<script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const sideNav = document.getElementById('side-nav');
+
+        function toggleMenu() {
+            const isOpen = !sideNav.classList.contains('translate-x-full');
+            if (isOpen) {
+                sideNav.classList.add('translate-x-full');
+            } else {
+                sideNav.classList.remove('translate-x-full');
+            }
+        }
+
+        menuToggle.addEventListener('click', toggleMenu);
+
+        // Simple smooth scroll for nav links (optional)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body></html>

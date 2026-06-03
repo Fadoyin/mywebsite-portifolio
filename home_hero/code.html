@@ -1,0 +1,323 @@
+<!DOCTYPE html><html class="dark" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@700;800&amp;family=Hanken+Grotesk:wght@400;500&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-high": "#2a2a2b",
+                    "tertiary": "#ffffff",
+                    "surface-container-highest": "#353436",
+                    "on-secondary-fixed": "#1b1b1f",
+                    "on-tertiary-fixed-variant": "#474744",
+                    "surface": "#131314",
+                    "on-surface-variant": "#c3c9b0",
+                    "on-secondary-fixed-variant": "#47464b",
+                    "tertiary-fixed-dim": "#c8c6c3",
+                    "surface-container-low": "#1c1b1c",
+                    "on-primary-fixed-variant": "#374e00",
+                    "on-tertiary-container": "#656462",
+                    "primary-fixed-dim": "#a3d728",
+                    "surface-container": "#201f20",
+                    "inverse-on-surface": "#313031",
+                    "inverse-surface": "#e5e2e3",
+                    "tertiary-fixed": "#e5e2df",
+                    "surface-variant": "#353436",
+                    "on-secondary-container": "#b6b4ba",
+                    "on-primary": "#253600",
+                    "terminal-cursor": "#C2F94A",
+                    "surface-tint": "#a3d728",
+                    "surface-bright": "#3a393a",
+                    "error": "#ffb4ab",
+                    "surface-container-lowest": "#0e0e0f",
+                    "secondary": "#c8c5cb",
+                    "on-error": "#690005",
+                    "outline": "#8d937c",
+                    "on-background": "#e5e2e3",
+                    "primary": "#ffffff",
+                    "on-tertiary-fixed": "#1b1c1a",
+                    "text-muted": "#A1A1AA",
+                    "on-primary-container": "#506e00",
+                    "on-tertiary": "#30302e",
+                    "outline-variant": "#434935",
+                    "primary-fixed": "#bef446",
+                    "primary-container": "#bef446",
+                    "secondary-container": "#47464b",
+                    "background": "#131314",
+                    "on-secondary": "#303034",
+                    "text-primary": "#F4F3EE",
+                    "on-surface": "#e5e2e3",
+                    "inverse-primary": "#4b6700",
+                    "error-container": "#93000a",
+                    "on-error-container": "#ffdad6",
+                    "secondary-fixed-dim": "#c8c5cb",
+                    "tertiary-container": "#e5e2df",
+                    "on-primary-fixed": "#141f00",
+                    "border-hairline": "rgba(255, 255, 255, 0.08)",
+                    "secondary-fixed": "#e4e1e7",
+                    "surface-dim": "#131314"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "max-width": "1180px",
+                    "grid-gutter": "1.5rem",
+                    "component-gap": "2rem",
+                    "card-padding": "2rem",
+                    "section-gap": "8rem"
+            },
+            "fontFamily": {
+                    "display-xl-mobile": ["Epilogue"],
+                    "label-code": ["JetBrains Mono"],
+                    "display-xl": ["Epilogue"],
+                    "body-md": ["Hanken Grotesk"],
+                    "headline-lg": ["Epilogue"],
+                    "label-mono": ["JetBrains Mono"],
+                    "body-sm": ["Hanken Grotesk"]
+            },
+            "fontSize": {
+                    "display-xl-mobile": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "label-code": ["13px", {"lineHeight": "1.4", "fontWeight": "400"}],
+                    "display-xl": ["92px", {"lineHeight": "1.0", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-mono": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .grid-overlay {
+            background-image: linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        .blinking-cursor::after {
+            content: '|';
+            animation: blink 1s step-end infinite;
+            color: #C2F94A;
+        }
+        @keyframes blink {
+            from, to { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        .marquee-content {
+            display: flex;
+            animation: scroll 30s linear infinite;
+        }
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .glow-sphere {
+            filter: blur(120px);
+            opacity: 0.15;
+            background: radial-gradient(circle, #C2F94A 0%, transparent 70%);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background selection:bg-primary-fixed-dim selection:text-black min-h-screen">
+<!-- TopNavBar -->
+<nav class="docked full-width top-0 sticky z-50 bg-surface/80 dark:bg-surface/80 backdrop-blur-xl border-b border-hairline">
+<div class="flex justify-between items-center w-full px-6 py-4 max-w-max-width mx-auto">
+<div class="font-display-xl-mobile text-body-md font-bold text-on-surface flex items-center gap-2 after:content-[''] after:w-2 after:h-2 after:bg-primary-fixed-dim after:rounded-full after:animate-pulse">Taiwo Fadoyin</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="font-body-md text-body-md uppercase tracking-wider text-primary-fixed-dim font-bold border-b border-primary-fixed-dim pb-1 hover:text-primary-fixed-dim transition-colors duration-200" href="#">Home</a>
+<a class="font-body-md text-body-md uppercase tracking-wider text-on-surface-variant font-medium hover:text-primary-fixed-dim transition-colors duration-200" href="#">About</a>
+<a class="font-body-md text-body-md uppercase tracking-wider text-on-surface-variant font-medium hover:text-primary-fixed-dim transition-colors duration-200" href="#">Work</a>
+<a class="font-body-md text-body-md uppercase tracking-wider text-on-surface-variant font-medium hover:text-primary-fixed-dim transition-colors duration-200" href="#">Services</a>
+<a class="font-body-md text-body-md uppercase tracking-wider text-on-surface-variant font-medium hover:text-primary-fixed-dim transition-colors duration-200" href="#">Blog</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-on-surface-variant hover:text-primary-fixed-dim transition-colors">
+<span class="material-symbols-outlined" data-icon="dark_mode">dark_mode</span>
+</button>
+<button class="hidden md:block bg-primary-fixed-dim text-on-primary px-6 py-2.5 rounded font-bold hover:brightness-110 active:scale-95 transition-all">
+                    Hire me
+                </button>
+<button class="md:hidden text-on-surface" id="mobile-menu-toggle">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- SideNavBar (Mobile Drawer) -->
+<div class="fixed inset-0 z-[60] flex flex-col w-full md:hidden translate-x-full transition-transform duration-300" id="side-nav">
+<div class="absolute inset-0 bg-black/50 backdrop-blur-sm" id="side-nav-overlay"></div>
+<div class="relative ml-auto w-4/5 h-full bg-surface-container-highest flex flex-col border-l border-hairline shadow-2xl p-6">
+<div class="flex justify-between items-center mb-12">
+<span class="font-display-xl-mobile text-headline-lg font-bold text-on-surface">Taiwo Fadoyin</span>
+<button id="side-nav-close">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+</div>
+<div class="flex flex-col gap-2 flex-grow">
+<a class="bg-primary-container text-on-primary-container rounded-lg p-4 flex items-center gap-4 font-label-mono text-label-mono active:translate-x-1 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span> Home
+                </a>
+<a class="text-on-surface-variant p-4 flex items-center gap-4 font-label-mono text-label-mono hover:bg-surface-variant active:translate-x-1 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span> About
+                </a>
+<a class="text-on-surface-variant p-4 flex items-center gap-4 font-label-mono text-label-mono hover:bg-surface-variant active:translate-x-1 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="work">work</span> Work
+                </a>
+<a class="text-on-surface-variant p-4 flex items-center gap-4 font-label-mono text-label-mono hover:bg-surface-variant active:translate-x-1 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="terminal">terminal</span> Services
+                </a>
+<a class="text-on-surface-variant p-4 flex items-center gap-4 font-label-mono text-label-mono hover:bg-surface-variant active:translate-x-1 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="article">article</span> Blog
+                </a>
+</div>
+<div class="mt-auto pt-6 border-t border-hairline">
+<p class="text-label-mono font-label-mono text-on-surface-variant mb-4">// Available for hire</p>
+<button class="w-full bg-primary-fixed-dim text-on-primary p-4 rounded-lg font-bold">Hire me</button>
+</div>
+</div>
+</div>
+<!-- Main Content -->
+<main class="relative pt-12 md:pt-24">
+<!-- Visual Atmosphere -->
+<div class="fixed inset-0 pointer-events-none z-0">
+<div class="grid-overlay absolute inset-0 opacity-40"></div>
+<div class="glow-sphere absolute top-0 left-1/4 w-[500px] h-[500px]"></div>
+<div class="glow-sphere absolute bottom-0 right-1/4 w-[600px] h-[600px]"></div>
+</div>
+<!-- Hero Section -->
+<section class="relative z-10 max-w-max-width mx-auto px-6 mb-section-gap">
+<!-- Status Pill -->
+<div class="flex mb-12">
+<div class="inline-flex items-center gap-3 bg-surface-container px-4 py-2 border border-hairline rounded-full">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-fixed-dim opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-primary-fixed-dim"></span>
+</span>
+<span class="font-label-mono text-label-mono uppercase tracking-widest text-on-surface">Available for new projects · 1–2 spots open</span>
+</div>
+</div>
+<div class="max-w-4xl">
+<h1 class="font-display-xl text-display-xl-mobile md:text-display-xl text-on-surface mb-8">
+                    I build <span class="text-primary-fixed-dim">reliable</span> web products<span class="blinking-cursor"></span>
+</h1>
+<p class="font-body-md text-body-md md:text-xl text-text-muted mb-12 max-w-2xl leading-relaxed">
+                    Full-stack developer focused on shipping high-performance startups. I bridge the gap between technical complexity and business growth with precision-engineered code.
+                </p>
+<div class="flex flex-col sm:flex-row gap-6 mb-section-gap">
+<button class="bg-primary-fixed-dim text-on-primary px-8 py-4 rounded-lg font-bold flex items-center justify-center gap-2 hover:brightness-110 transition-all">
+                        Hire me <span class="font-label-mono">→</span>
+</button>
+<button class="border border-hairline text-on-surface px-8 py-4 rounded-lg font-bold flex items-center justify-center gap-2 hover:bg-surface-variant transition-all">
+                        View work
+                    </button>
+</div>
+</div>
+<!-- Stats Grid -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 pt-12 border-t border-hairline">
+<div class="flex flex-col gap-1">
+<span class="font-label-mono text-label-mono text-on-surface-variant">// EXPERIENCE</span>
+<span class="font-display-xl text-headline-lg text-on-surface">04</span>
+<span class="font-body-sm text-body-sm text-text-muted uppercase tracking-tighter">Years Shipping</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-label-mono text-label-mono text-on-surface-variant">// OUTPUT</span>
+<span class="font-display-xl text-headline-lg text-on-surface">30+</span>
+<span class="font-body-sm text-body-sm text-text-muted uppercase tracking-tighter">Projects Launched</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-label-mono text-label-mono text-on-surface-variant">// UPTIME</span>
+<span class="font-display-xl text-headline-lg text-on-surface">99%</span>
+<span class="font-body-sm text-body-sm text-text-muted uppercase tracking-tighter">Client Satisfaction</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-label-mono text-label-mono text-on-surface-variant">// REGION</span>
+<span class="font-display-xl text-headline-lg text-on-surface">United Kingdom</span>
+<span class="font-body-sm text-body-sm text-text-muted uppercase tracking-tighter">Remote Ready</span>
+</div>
+</div>
+</section>
+<!-- Tech Marquee -->
+<section class="relative z-10 border-y border-hairline bg-surface py-12 overflow-hidden">
+<div class="marquee-content whitespace-nowrap">
+<div class="flex gap-16 items-center px-8">
+<span class="font-label-mono text-headline-lg text-on-surface opacity-20 uppercase">React</span>
+<span class="font-label-mono text-headline-lg text-on-surface opacity-20 uppercase">Next.js</span>
+<span class="font-label-mono text-headline-lg text-on-surface opacity-20 uppercase">TypeScript</span>
+<span class="font-label-mono text-headline-lg text-on-surface opacity-20 uppercase">Node.js</span>
+<span class="font-label-mono text-headline-lg text-on-surface opacity-20 uppercase">PostgreSQL</span>
+<span class="font-label-mono text-headline-lg text-on-surface opacity-20 uppercase">Tailwind</span>
+<span class="font-label-mono text-headline-lg text-on-surface opacity-20 uppercase">GraphQL</span>
+<span class="font-label-mono text-headline-lg text-on-surface opacity-20 uppercase">Python</span>
+<span class="font-label-mono text-headline-lg text-on-surface opacity-20 uppercase">AWS</span>
+<span class="font-label-mono text-headline-lg text-on-surface opacity-20 uppercase">Docker</span>
+</div>
+<!-- Duplicate for continuous loop -->
+<div class="flex gap-16 items-center px-8">
+<span class="font-label-mono text-headline-lg text-on-surface opacity-20 uppercase">React</span>
+<span class="font-label-mono text-headline-lg text-on-surface opacity-20 uppercase">Next.js</span>
+<span class="font-label-mono text-headline-lg text-on-surface opacity-20 uppercase">TypeScript</span>
+<span class="font-label-mono text-headline-lg text-on-surface opacity-20 uppercase">Node.js</span>
+<span class="font-label-mono text-headline-lg text-on-surface opacity-20 uppercase">PostgreSQL</span>
+<span class="font-label-mono text-headline-lg text-on-surface opacity-20 uppercase">Tailwind</span>
+<span class="font-label-mono text-headline-lg text-on-surface opacity-20 uppercase">GraphQL</span>
+<span class="font-label-mono text-headline-lg text-on-surface opacity-20 uppercase">Python</span>
+<span class="font-label-mono text-headline-lg text-on-surface opacity-20 uppercase">AWS</span>
+<span class="font-label-mono text-headline-lg text-on-surface opacity-20 uppercase">Docker</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface dark:bg-surface border-t border-hairline mt-section-gap">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-6 py-12 max-w-max-width mx-auto">
+<div class="font-display-xl text-headline-lg text-on-surface opacity-10 mb-8 md:mb-0">Taiwo Fadoyin</div>
+<div class="flex flex-col items-center md:items-end gap-6">
+<div class="flex gap-8">
+<a class="font-label-mono text-label-mono uppercase text-on-surface-variant hover:text-on-surface transition-colors" href="#">Github</a>
+<a class="font-label-mono text-label-mono uppercase text-on-surface-variant hover:text-on-surface transition-colors" href="#">LinkedIn</a>
+<a class="font-label-mono text-label-mono uppercase text-on-surface-variant hover:text-on-surface transition-colors" href="#">Twitter</a>
+<a class="font-label-mono text-label-mono uppercase text-on-surface-variant hover:text-on-surface transition-colors" href="#">Email</a>
+</div>
+<div class="font-label-mono text-label-mono uppercase text-on-surface-variant opacity-50">© 2024 TAIWO FADOYIN — BUILT WITH PRECISION</div>
+</div>
+</div>
+</footer>
+<script>
+        const mobileToggle = document.getElementById('mobile-menu-toggle');
+        const sideNav = document.getElementById('side-nav');
+        const sideNavClose = document.getElementById('side-nav-close');
+        const sideNavOverlay = document.getElementById('side-nav-overlay');
+
+        function toggleMenu() {
+            sideNav.classList.toggle('translate-x-full');
+            document.body.classList.toggle('overflow-hidden');
+        }
+
+        mobileToggle.addEventListener('click', toggleMenu);
+        sideNavClose.addEventListener('click', toggleMenu);
+        sideNavOverlay.addEventListener('click', toggleMenu);
+
+        // Micro-interaction for mouse movement on background
+        document.addEventListener('mousemove', (e) => {
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            const spheres = document.querySelectorAll('.glow-sphere');
+            spheres.forEach((s, idx) => {
+                const moveX = (x - 0.5) * (idx + 1) * 30;
+                const moveY = (y - 0.5) * (idx + 1) * 30;
+                s.style.transform = `translate(${moveX}px, ${moveY}px)`;
+            });
+        });
+    </script>
+</body>
+</html>

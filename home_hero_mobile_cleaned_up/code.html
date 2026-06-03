@@ -1,0 +1,306 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>jordan.dev | Mobile Home</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@700;800&amp;family=Hanken+Grotesk:wght@400;500&amp;family=JetBrains+Mono:wght@400;500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@100..900&amp;family=Hanken+Grotesk:wght@100..900&amp;family=JetBrains+Mono:wght@100..900&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-surface": "#e5e2e3",
+                    "on-secondary": "#303034",
+                    "surface-container": "#201f20",
+                    "on-tertiary-fixed-variant": "#474744",
+                    "surface": "#131314",
+                    "tertiary-fixed-dim": "#c8c6c3",
+                    "error": "#ffb4ab",
+                    "surface-dim": "#131314",
+                    "primary-container": "#bef446",
+                    "primary-fixed": "#bef446",
+                    "secondary-fixed": "#e4e1e7",
+                    "secondary": "#c8c5cb",
+                    "outline": "#8d937c",
+                    "background": "#131314",
+                    "surface-container-high": "#2a2a2b",
+                    "on-primary-fixed": "#141f00",
+                    "secondary-fixed-dim": "#c8c5cb",
+                    "tertiary-fixed": "#e5e2df",
+                    "tertiary-container": "#e5e2df",
+                    "inverse-surface": "#e5e2e3",
+                    "surface-container-lowest": "#0e0e0f",
+                    "on-secondary-container": "#b6b4ba",
+                    "inverse-on-surface": "#313031",
+                    "text-muted": "#A1A1AA",
+                    "on-primary": "#253600",
+                    "tertiary": "#ffffff",
+                    "inverse-primary": "#4b6700",
+                    "on-surface-variant": "#c3c9b0",
+                    "terminal-cursor": "#C2F94A",
+                    "surface-variant": "#353436",
+                    "on-error-container": "#ffdad6",
+                    "surface-tint": "#a3d728",
+                    "outline-variant": "#434935",
+                    "on-secondary-fixed": "#1b1b1f",
+                    "surface-bright": "#3a393a",
+                    "secondary-container": "#47464b",
+                    "text-primary": "#F4F3EE",
+                    "error-container": "#93000a",
+                    "on-secondary-fixed-variant": "#47464b",
+                    "on-background": "#e5e2e3",
+                    "surface-container-low": "#1c1b1c",
+                    "on-error": "#690005",
+                    "border-hairline": "rgba(255, 255, 255, 0.08)",
+                    "on-primary-fixed-variant": "#374e00",
+                    "on-tertiary": "#30302e",
+                    "surface-container-highest": "#353436",
+                    "on-tertiary-container": "#656462",
+                    "primary": "#ffffff",
+                    "on-tertiary-fixed": "#1b1c1a",
+                    "on-primary-container": "#506e00",
+                    "primary-fixed-dim": "#a3d728"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "section-gap": "4rem",
+                    "card-padding": "1.25rem",
+                    "max-width": "1180px",
+                    "grid-gutter": "1rem",
+                    "component-gap": "1.5rem"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Epilogue"],
+                    "display-xl-mobile": ["Epilogue"],
+                    "display-xl": ["Epilogue"],
+                    "body-sm": ["Hanken Grotesk"],
+                    "label-mono": ["JetBrains Mono"],
+                    "label-code": ["JetBrains Mono"],
+                    "body-md": ["Hanken Grotesk"]
+            },
+            "fontSize": {
+                    "headline-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "display-xl-mobile": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "display-xl": ["92px", {"lineHeight": "1.0", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                    "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "label-mono": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "label-code": ["13px", {"lineHeight": "1.4", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        
+        .animate-marquee {
+            display: flex;
+            width: max-content;
+            animation: marquee 20s linear infinite;
+        }
+
+        .grid-blueprint {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        }
+
+        .active-nav-link {
+            border-bottom: 1px solid #a3d728;
+            padding-bottom: 4px;
+            color: #a3d728;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary-fixed-dim selection:text-on-primary-fixed font-body-md overflow-x-hidden">
+<!-- TopNavBar Shell -->
+<nav class="bg-surface/80 dark:bg-surface/80 backdrop-blur-xl docked full-width top-0 sticky border-b border-hairline z-50">
+<div class="flex justify-between items-center w-full px-6 py-4 max-w-max-width mx-auto">
+<div class="font-display-xl-mobile text-body-md font-bold text-on-surface flex items-center gap-2 after:content-[''] after:w-2 after:h-2 after:bg-primary-fixed-dim after:rounded-full after:animate-pulse">Taiwo Fadoyin</div>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant" onclick="toggleMenu()">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- SideNavBar (Mobile Drawer) -->
+<div class="fixed inset-0 z-[60] flex flex-col w-full md:hidden bg-surface-container-highest translate-x-full transition-transform duration-300" id="side-nav">
+<div class="p-6 border-b border-hairline flex justify-between items-center">
+<span class="font-display-xl-mobile text-headline-lg font-bold text-on-surface">jordan.dev</span>
+<button class="p-2 text-on-surface" onclick="toggleMenu()">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="p-6">
+<p class="font-label-mono text-label-mono text-primary-fixed-dim mb-8">// Available for hire</p>
+<nav class="flex flex-col gap-2">
+<a class="bg-primary-container text-on-primary-container rounded-lg p-4 flex items-center gap-4 font-label-mono text-label-mono" href="#">
+<span class="material-symbols-outlined">home</span> Home
+                </a>
+<a class="text-on-surface-variant p-4 flex items-center gap-4 hover:bg-surface-variant transition-all font-label-mono text-label-mono" href="#">
+<span class="material-symbols-outlined">person</span> About
+                </a>
+<a class="text-on-surface-variant p-4 flex items-center gap-4 hover:bg-surface-variant transition-all font-label-mono text-label-mono" href="#">
+<span class="material-symbols-outlined">work</span> Work
+                </a>
+<a class="text-on-surface-variant p-4 flex items-center gap-4 hover:bg-surface-variant transition-all font-label-mono text-label-mono" href="#">
+<span class="material-symbols-outlined">terminal</span> Services
+                </a>
+<a class="text-on-surface-variant p-4 flex items-center gap-4 hover:bg-surface-variant transition-all font-label-mono text-label-mono" href="#">
+<span class="material-symbols-outlined">article</span> Blog
+                </a>
+</nav>
+<button class="mt-8 w-full py-4 bg-primary-container text-on-primary-container font-bold rounded-lg uppercase tracking-widest text-label-mono">
+                Hire me
+            </button>
+</div>
+</div>
+<!-- Main Content Canvas -->
+<main class="relative min-h-screen">
+<!-- Hero Section -->
+<section class="grid-blueprint pt-12 pb-16 px-6">
+<div class="max-w-max-width mx-auto flex flex-col items-center text-center">
+<!-- Status Pill -->
+<div class="inline-flex items-center gap-3 px-4 py-2 bg-surface-container-low border border-hairline rounded-full mb-8">
+<span class="w-2.5 h-2.5 bg-primary-fixed-dim rounded-full animate-pulse shadow-[0_0_12px_#a3d728]"></span>
+<span class="font-label-mono text-label-mono text-on-surface-variant uppercase">Taiwo Fadoyin — Active now</span>
+</div>
+<h1 class="font-display-xl-mobile text-display-xl-mobile text-on-surface leading-tight mb-8">
+                    I build <span class="text-primary-fixed-dim">reliable</span> web products
+                </h1>
+<!-- Stats 2x2 Grid -->
+<div class="grid grid-cols-2 gap-px bg-hairline w-full border border-hairline mb-12">
+<div class="bg-surface p-6 flex flex-col items-center justify-center">
+<span class="text-primary-fixed-dim font-label-mono text-label-mono mb-1">// Exp</span>
+<span class="font-headline-lg text-headline-lg text-on-surface">06+</span>
+<span class="font-label-mono text-label-mono text-on-surface-variant text-[10px]">YEARS</span>
+</div>
+<div class="bg-surface p-6 flex flex-col items-center justify-center">
+<span class="text-primary-fixed-dim font-label-mono text-label-mono mb-1">// Out</span>
+<span class="font-headline-lg text-headline-lg text-on-surface">42</span>
+<span class="font-label-mono text-label-mono text-on-surface-variant text-[10px]">SHIPPED</span>
+</div>
+<div class="bg-surface p-6 flex flex-col items-center justify-center">
+<span class="text-primary-fixed-dim font-label-mono text-label-mono mb-1">// Upt</span>
+<span class="font-headline-lg text-headline-lg text-on-surface">99.9</span>
+<span class="font-label-mono text-label-mono text-on-surface-variant text-[10px]">PERCENT</span>
+</div>
+<div class="bg-surface p-6 flex flex-col items-center justify-center">
+<span class="text-primary-fixed-dim font-label-mono text-label-mono mb-1">// Reg</span>
+<span class="font-headline-lg text-headline-lg text-on-surface">LOS</span>
+<span class="font-label-mono text-label-mono text-on-surface-variant text-[10px]">LAGOS</span>
+</div>
+</div>
+<button class="bg-primary-fixed text-on-primary-fixed px-8 py-5 rounded-lg font-bold w-full uppercase tracking-tighter hover:scale-[0.98] transition-transform flex items-center justify-center gap-2">
+                    Initialize project <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</section>
+<!-- Tech Marquee -->
+<section class="border-y border-hairline bg-surface-container-low overflow-hidden py-4">
+<div class="animate-marquee whitespace-nowrap">
+<span class="font-label-mono text-label-mono text-on-surface-variant px-8 tracking-[0.2em] flex items-center gap-4 uppercase">
+                    React.js <span class="text-primary-fixed-dim">•</span> TypeScript <span class="text-primary-fixed-dim">•</span> Node.js <span class="text-primary-fixed-dim">•</span> PostgreSQL <span class="text-primary-fixed-dim">•</span> Next.js <span class="text-primary-fixed-dim">•</span> Rust <span class="text-primary-fixed-dim">•</span> AWS <span class="text-primary-fixed-dim">•</span> Docker
+                </span>
+<span class="font-label-mono text-label-mono text-on-surface-variant px-8 tracking-[0.2em] flex items-center gap-4 uppercase">
+                    React.js <span class="text-primary-fixed-dim">•</span> TypeScript <span class="text-primary-fixed-dim">•</span> Node.js <span class="text-primary-fixed-dim">•</span> PostgreSQL <span class="text-primary-fixed-dim">•</span> Next.js <span class="text-primary-fixed-dim">•</span> Rust <span class="text-primary-fixed-dim">•</span> AWS <span class="text-primary-fixed-dim">•</span> Docker
+                </span>
+</div>
+</section>
+<!-- About Section -->
+<section class="py-section-gap px-6">
+<div class="max-w-max-width mx-auto">
+<div class="mb-12">
+<p class="font-label-mono text-label-mono text-primary-fixed-dim mb-4 tracking-widest uppercase">// Origin Story</p>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-8">The Engineer behind the code</h2>
+</div>
+<!-- Bio Card -->
+<div class="bg-surface-container border border-hairline overflow-hidden rounded-lg">
+<div class="relative w-full aspect-[3/4] overflow-hidden group">
+<img alt="Taiwo Fadoyin Portrait" class="w-full h-full object-cover grayscale brightness-75 transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0 group-hover:brightness-100" src="https://lh3.googleusercontent.com/aida/AP1WRLssrvhvmk3yG8tTIyRdGn2qxU8f2vPtu8M8jqW7QJUr-5kz24KHBGxqV5umKC25z77NO8AvpIzDsfcEhHJk4_UmYWKvEE8llZdfpxzG7tYhaAjxPEdkIH05qK2ewErq0m1pQEQ3T9KHx2QQZv-IOADbHOwN4XcpxFcCpW5YOzEnt2oc2vv697aWQzhsQEiVL669PRyIzG_tWnYzazEH1KsIfdo75tqdJ6A7e_zNbcZHaswz09waQNUv_xvY">
+<div class="absolute bottom-6 left-6 inline-flex items-center gap-2 bg-surface/80 backdrop-blur px-4 py-2 rounded-full border border-hairline">
+<span class="material-symbols-outlined text-primary-fixed-dim text-sm">location_on</span>
+<span class="font-label-mono text-label-mono text-on-surface uppercase tracking-tight">Based in Lagos</span>
+</div>
+</div>
+<div class="p-8">
+<div class="flex items-start gap-4 mb-6">
+<div class="w-12 h-1 bg-primary-fixed-dim mt-4"></div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                                Specializing in architectural integrity and performance-first solutions. My work is defined by a commitment to technical precision and a "utility-first" design philosophy.
+                            </p>
+</div>
+<div class="grid grid-cols-1 gap-4">
+<div class="p-4 border border-hairline bg-surface-container-high rounded-lg flex items-center justify-between">
+<span class="font-label-mono text-label-mono uppercase text-on-surface-variant">Systems Architecture</span>
+<span class="material-symbols-outlined text-primary-fixed-dim">verified</span>
+</div>
+<div class="p-4 border border-hairline bg-surface-container-high rounded-lg flex items-center justify-between">
+<span class="font-label-mono text-label-mono uppercase text-on-surface-variant">Full-Stack Development</span>
+<span class="material-symbols-outlined text-primary-fixed-dim">verified</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer Shell -->
+<footer class="bg-surface dark:bg-surface border-t border-hairline mt-section-gap">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-6 py-12 max-w-max-width mx-auto">
+<div class="font-display-xl text-headline-lg text-on-surface opacity-10 mb-8 md:mb-0">
+                JORDAN.DEV
+            </div>
+<div class="flex flex-col items-center gap-6">
+<div class="flex gap-8 font-label-mono text-label-mono uppercase text-on-surface-variant">
+<a class="hover:text-on-surface transition-colors" href="#">Github</a>
+<a class="hover:text-on-surface transition-colors" href="#">LinkedIn</a>
+<a class="hover:text-on-surface transition-colors" href="#">Twitter</a>
+<a class="hover:text-on-surface transition-colors" href="#">Email</a>
+</div>
+<p class="font-label-mono text-label-mono uppercase text-on-surface-variant text-[10px] tracking-widest text-center">
+                    © 2024 JORDAN.DEV — BUILT WITH PRECISION
+                </p>
+</div>
+</div>
+</footer>
+<script>
+        function toggleMenu() {
+            const sideNav = document.getElementById('side-nav');
+            sideNav.classList.toggle('translate-x-full');
+        }
+
+        // Simple scroll reveal effect for bio image
+        window.addEventListener('scroll', () => {
+            const reveals = document.querySelectorAll('.group img');
+            reveals.forEach(reveal => {
+                const windowHeight = window.innerHeight;
+                const revealTop = reveal.getBoundingClientRect().top;
+                const revealPoint = 150;
+                if (revealTop < windowHeight - revealPoint) {
+                    // Could add active states here
+                }
+            });
+        });
+    </script>
+
+
+</body></html>

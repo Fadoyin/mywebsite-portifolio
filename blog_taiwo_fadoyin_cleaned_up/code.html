@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Blog | Taiwo Fadoyin</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@700;800&amp;family=Hanken+Grotesk:wght@400;500&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container-high": "#2a2a2b",
+                      "tertiary": "#ffffff",
+                      "surface-container-highest": "#353436",
+                      "on-secondary-fixed": "#1b1b1f",
+                      "on-tertiary-fixed-variant": "#474744",
+                      "surface": "#131314",
+                      "on-surface-variant": "#c3c9b0",
+                      "on-secondary-fixed-variant": "#47464b",
+                      "tertiary-fixed-dim": "#c8c6c3",
+                      "surface-container-low": "#1c1b1c",
+                      "on-primary-fixed-variant": "#374e00",
+                      "on-tertiary-container": "#656462",
+                      "primary-fixed-dim": "#a3d728",
+                      "surface-container": "#201f20",
+                      "inverse-on-surface": "#313031",
+                      "inverse-surface": "#e5e2e3",
+                      "tertiary-fixed": "#e5e2df",
+                      "surface-variant": "#353436",
+                      "on-secondary-container": "#b6b4ba",
+                      "on-primary": "#253600",
+                      "terminal-cursor": "#C2F94A",
+                      "surface-tint": "#a3d728",
+                      "surface-bright": "#3a393a",
+                      "error": "#ffb4ab",
+                      "surface-container-lowest": "#0e0e0f",
+                      "secondary": "#c8c5cb",
+                      "on-error": "#690005",
+                      "outline": "#8d937c",
+                      "on-background": "#e5e2e3",
+                      "primary": "#ffffff",
+                      "on-tertiary-fixed": "#1b1c1a",
+                      "text-muted": "#A1A1AA",
+                      "on-primary-container": "#506e00",
+                      "on-tertiary": "#30302e",
+                      "outline-variant": "#434935",
+                      "primary-fixed": "#bef446",
+                      "primary-container": "#bef446",
+                      "secondary-container": "#47464b",
+                      "background": "#131314",
+                      "on-secondary": "#303034",
+                      "text-primary": "#F4F3EE",
+                      "on-surface": "#e5e2e3",
+                      "inverse-primary": "#4b6700",
+                      "error-container": "#93000a",
+                      "on-error-container": "#ffdad6",
+                      "secondary-fixed-dim": "#c8c5cb",
+                      "tertiary-container": "#e5e2df",
+                      "on-primary-fixed": "#141f00",
+                      "border-hairline": "rgba(255, 255, 255, 0.08)",
+                      "secondary-fixed": "#e4e1e7",
+                      "surface-dim": "#131314"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "max-width": "1180px",
+                      "grid-gutter": "1.5rem",
+                      "component-gap": "2rem",
+                      "card-padding": "2rem",
+                      "section-gap": "8rem"
+              },
+              "fontFamily": {
+                      "display-xl-mobile": ["Epilogue"],
+                      "label-code": ["JetBrains Mono"],
+                      "display-xl": ["Epilogue"],
+                      "body-md": ["Hanken Grotesk"],
+                      "headline-lg": ["Epilogue"],
+                      "label-mono": ["JetBrains Mono"],
+                      "body-sm": ["Hanken Grotesk"]
+              },
+              "fontSize": {
+                      "display-xl-mobile": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                      "label-code": ["13px", {"lineHeight": "1.4", "fontWeight": "400"}],
+                      "display-xl": ["92px", {"lineHeight": "1.0", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                      "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "headline-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "label-mono": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                      "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        body {
+            background-color: #0A0A0B;
+            color: #e5e2e3;
+            -webkit-font-smoothing: antialiased;
+        }
+        .grid-bg {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .blog-row:hover .arrow-icon {
+            transform: translate(4px, -4px);
+        }
+        code {
+            font-family: 'JetBrains Mono', monospace;
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md selection:bg-primary-fixed-dim selection:text-on-primary">
+<!-- Top Navigation Shell -->
+<nav class="bg-surface/80 dark:bg-surface/80 backdrop-blur-xl border-b border-hairline docked full-width top-0 sticky z-50">
+<div class="flex justify-between items-center w-full px-6 py-4 max-w-max-width mx-auto">
+<a class="font-display-xl-mobile text-body-md font-bold text-on-surface flex items-center gap-2 after:content-[''] after:w-2 after:h-2 after:bg-primary-fixed-dim after:rounded-full after:animate-pulse" href="#">Taiwo Fadoyin</a>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant font-medium font-body-md text-body-md uppercase tracking-wider hover:text-primary-fixed-dim transition-colors duration-200" href="#">Home</a>
+<a class="text-on-surface-variant font-medium font-body-md text-body-md uppercase tracking-wider hover:text-primary-fixed-dim transition-colors duration-200" href="#">About</a>
+<a class="text-on-surface-variant font-medium font-body-md text-body-md uppercase tracking-wider hover:text-primary-fixed-dim transition-colors duration-200" href="#">Work</a>
+<a class="text-on-surface-variant font-medium font-body-md text-body-md uppercase tracking-wider hover:text-primary-fixed-dim transition-colors duration-200" href="#">Services</a>
+<a class="text-primary-fixed-dim font-bold border-b border-primary-fixed-dim pb-1 font-body-md text-body-md uppercase tracking-wider" href="#">Blog</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary-fixed-dim transition-colors">dark_mode</button>
+<button class="bg-primary-container text-on-primary font-bold px-4 py-2 rounded transition-transform active:scale-95">Hire me</button>
+</div>
+</div>
+</nav>
+<main class="relative min-h-screen">
+<!-- Background Grid Decoration -->
+<div class="absolute inset-0 grid-bg pointer-events-none -z-10 h-[500px]"></div>
+<!-- Blog Section -->
+<div class="scroll-mt-24" id="blog-archive">
+<!-- Hero Section -->
+<header class="max-w-max-width mx-auto px-6 pt-24 pb-16">
+<span class="font-label-mono text-label-mono uppercase tracking-[0.2em] text-primary-fixed-dim block mb-4">// 05 — writing</span>
+<h1 class="font-display-xl text-display-xl text-on-surface mb-4">Notes from the build</h1>
+<p class="text-on-surface-variant max-w-2xl font-body-md text-body-md">
+                    Technical deep-dives, architectural post-mortems, and reflections on the craft of software engineering.
+                </p>
+</header>
+<!-- Blog Feed -->
+<section class="max-w-max-width mx-auto px-6 mb-section-gap">
+<div class="flex flex-col border-t border-hairline">
+<!-- Blog Item 1 -->
+<a class="blog-row group grid grid-cols-1 md:grid-cols-[120px_1fr_150px_40px] items-center py-8 border-b border-hairline hover:bg-white/[0.02] transition-colors" href="#article">
+<span class="font-label-mono text-label-mono text-on-surface-variant">2024.05.12</span>
+<h3 class="font-headline-lg text-headline-lg md:text-[24px] text-on-surface group-hover:text-primary-fixed-dim transition-colors">Why I stopped reaching for microservices</h3>
+<div class="flex justify-start md:justify-center">
+<span class="font-label-mono text-label-mono border border-primary-fixed-dim/30 text-primary-fixed-dim px-2 py-1 rounded">ARCHITECTURE</span>
+</div>
+<span class="material-symbols-outlined arrow-icon transition-transform text-primary-fixed-dim text-right">north_east</span>
+</a>
+<!-- Blog Item 2 -->
+<a class="blog-row group grid grid-cols-1 md:grid-cols-[120px_1fr_150px_40px] items-center py-8 border-b border-hairline hover:bg-white/[0.02] transition-colors" href="#">
+<span class="font-label-mono text-label-mono text-on-surface-variant">2024.04.28</span>
+<h3 class="font-headline-lg text-headline-lg md:text-[24px] text-on-surface group-hover:text-primary-fixed-dim transition-colors">The art of the high-performance terminal UI</h3>
+<div class="flex justify-start md:justify-center">
+<span class="font-label-mono text-label-mono border border-primary-fixed-dim/30 text-primary-fixed-dim px-2 py-1 rounded">DESIGN</span>
+</div>
+<span class="material-symbols-outlined arrow-icon transition-transform text-primary-fixed-dim text-right">north_east</span>
+</a>
+<!-- Blog Item 3 -->
+<a class="blog-row group grid grid-cols-1 md:grid-cols-[120px_1fr_150px_40px] items-center py-8 border-b border-hairline hover:bg-white/[0.02] transition-colors" href="#">
+<span class="font-label-mono text-label-mono text-on-surface-variant">2024.03.15</span>
+<h3 class="font-headline-lg text-headline-lg md:text-[24px] text-on-surface group-hover:text-primary-fixed-dim transition-colors">Rust vs Go for cloud-native CLI tools</h3>
+<div class="flex justify-start md:justify-center">
+<span class="font-label-mono text-label-mono border border-primary-fixed-dim/30 text-primary-fixed-dim px-2 py-1 rounded">ENGINEERING</span>
+</div>
+<span class="material-symbols-outlined arrow-icon transition-transform text-primary-fixed-dim text-right">north_east</span>
+</a>
+<!-- Blog Item 4 -->
+<a class="blog-row group grid grid-cols-1 md:grid-cols-[120px_1fr_150px_40px] items-center py-8 border-b border-hairline hover:bg-white/[0.02] transition-colors" href="#">
+<span class="font-label-mono text-label-mono text-on-surface-variant">2024.02.02</span>
+<h3 class="font-headline-lg text-headline-lg md:text-[24px] text-on-surface group-hover:text-primary-fixed-dim transition-colors">Building a custom rendering engine in 30 days</h3>
+<div class="flex justify-start md:justify-center">
+<span class="font-label-mono text-label-mono border border-primary-fixed-dim/30 text-primary-fixed-dim px-2 py-1 rounded">SYSTEMS</span>
+</div>
+<span class="material-symbols-outlined arrow-icon transition-transform text-primary-fixed-dim text-right">north_east</span>
+</a>
+</div>
+</section>
+</div>
+<!-- Reading View -->
+<article class="max-w-[720px] mx-auto px-6 pt-16 mb-section-gap scroll-mt-24" id="article">
+<a class="flex items-center gap-2 font-label-mono text-label-mono text-primary-fixed-dim uppercase mb-12 hover:gap-3 transition-all group" href="#blog-archive">
+<span class="material-symbols-outlined text-[14px]">arrow_back</span>
+                Back to archive
+            </a>
+<div class="mb-12">
+<div class="flex items-center gap-4 mb-6">
+<span class="font-label-mono text-label-mono text-on-surface-variant">MAY 12, 2024</span>
+<span class="w-1 h-1 bg-hairline rounded-full"></span>
+<span class="font-label-mono text-label-mono text-primary-fixed-dim">ARCHITECTURE</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-10 leading-tight">Why I stopped reaching for microservices</h2>
+<div class="relative w-full aspect-video bg-surface-container-low overflow-hidden rounded-lg mb-12 border border-hairline">
+<img alt="Technical architecture visualization" class="w-full h-full object-cover opacity-80 grayscale hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKsPY0MxQobq6OJeydXXN0ylZk8u5QcQEP2QepbK2ozDjarg4PmAzJn7cmmlU73g8FzqB1uSnF7e2aGJT0GGnedmoosUnVCFL3hZ5vqPYZUpvI4zHkQs9qOk_2WQyK02I4pg7bmMpwFkQsprtDWkDcGHMpK6UcENHqspG3AKxD1v2odwaJPHN8f4NLpMsIClyu3ua-PmANmdZLqUoM4TdtKVAZS5_yPjURe7VTnaJuLaivVbkbrut334UG7m-o48B-wwOtrzke50Dw"/>
+</div>
+</div>
+<div class="prose prose-invert max-w-none space-y-6 text-on-surface-variant font-body-md text-body-md leading-[1.8]">
+<p>
+                    For the last decade, we've been told that microservices are the eventual destination for every successful application. We decouple, we containerize, and we orchestrate. But for most teams, this overhead is a tax on velocity that never pays dividends.
+                </p>
+<p>
+                    The cognitive load of managing fifty repositories, disparate CI/CD pipelines, and tracing requests across a network boundary is immense. Often, the "scaling" problem we think we're solving is actually a "modularization" problem within a single codebase.
+                </p>
+<div class="bg-surface-container-low p-6 rounded-lg border border-hairline my-10">
+<div class="flex items-center justify-between mb-4 border-b border-hairline pb-4">
+<span class="font-label-mono text-label-mono text-on-surface-variant uppercase tracking-widest">// config.yaml</span>
+<span class="material-symbols-outlined text-primary-fixed-dim">code</span>
+</div>
+<pre class="font-label-code text-label-code text-on-surface overflow-x-auto"><code class="block"><span class="text-primary-fixed-dim">services:</span>
+  <span class="text-primary-fixed-dim">monolith:</span>
+    <span class="text-primary-fixed-dim">image:</span> internal/core-app:latest
+    <span class="text-primary-fixed-dim">replicas:</span> 3
+    <span class="text-primary-fixed-dim">deploy:</span>
+      <span class="text-primary-fixed-dim">mode:</span> replicated
+      <span class="text-primary-fixed-dim">resources:</span>
+        <span class="text-primary-fixed-dim">limits:</span>
+          <span class="text-primary-fixed-dim">cpus:</span> '0.50'
+          <span class="text-primary-fixed-dim">memory:</span> 512M</code></pre>
+</div>
+<h3 class="font-headline-lg text-[28px] text-on-surface pt-6 pb-2">The Modular Monolith</h3>
+<p>
+                    Instead of physical decoupling, I've returned to the <span class="text-primary-fixed-dim italic">Modular Monolith</span>. By enforcing strict internal boundaries using language-specific features (like Go packages or Rust modules) and a shared database, we keep the deployment simplicity of a single unit while maintaining the organizational benefits of microservices.
+                </p>
+<p>
+                    The goal isn't just to write code faster; it's to maintain it longer with fewer sleepless nights debugging network timeouts between services that could have just been a local function call.
+                </p>
+</div>
+<footer class="mt-20 pt-12 border-t border-hairline text-center">
+<div class="max-w-md mx-auto">
+<h4 class="font-headline-lg text-[20px] text-on-surface mb-4">Enjoyed this read?</h4>
+<p class="text-on-surface-variant mb-8 text-body-sm">Stay updated with my latest thoughts on architecture and engineering craft.</p>
+<button class="bg-primary-container text-on-primary font-bold px-8 py-3 rounded hover:opacity-90 transition-opacity w-full">Subscribe to the Log</button>
+</div>
+</footer>
+</article>
+</main>
+<!-- Footer Shell -->
+<footer class="bg-surface dark:bg-surface border-t border-hairline">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-6 py-12 max-w-max-width mx-auto gap-8">
+<div class="flex flex-col gap-2">
+<div class="font-display-xl text-headline-lg text-on-surface opacity-10 font-bold leading-none select-none">TAIWO FADOYIN</div>
+<p class="font-label-mono text-label-mono text-on-surface-variant">© 2024 TAIWO FADOYIN — BUILT WITH PRECISION</p>
+</div>
+<div class="flex gap-8">
+<a class="font-label-mono text-label-mono uppercase text-on-surface-variant hover:text-on-surface transition-colors" href="#">Github</a>
+<a class="font-label-mono text-label-mono uppercase text-on-surface-variant hover:text-on-surface transition-colors" href="#">LinkedIn</a>
+<a class="font-label-mono text-label-mono uppercase text-on-surface-variant hover:text-on-surface transition-colors" href="#">Twitter</a>
+<a class="font-label-mono text-label-mono uppercase text-on-surface-variant hover:text-on-surface transition-colors" href="#">Email</a>
+</div>
+</div>
+</footer>
+<!-- Side Navigation (Mobile Drawer) -->
+<aside class="fixed inset-0 z-[60] flex flex-col w-full md:hidden bg-surface-container-highest transform translate-x-full transition-transform duration-300 pointer-events-none" id="side-nav">
+<div class="p-6 flex justify-between items-center border-b border-hairline">
+<span class="font-display-xl-mobile text-headline-lg font-bold text-on-surface">Taiwo Fadoyin</span>
+<button class="material-symbols-outlined text-on-surface" onclick="toggleMenu()">close</button>
+</div>
+<div class="flex flex-col p-4 gap-2">
+<a class="text-on-surface-variant p-4 flex items-center gap-4 font-label-mono text-label-mono hover:bg-surface-variant transition-all" href="#">
+<span class="material-symbols-outlined">home</span> Home
+            </a>
+<a class="text-on-surface-variant p-4 flex items-center gap-4 font-label-mono text-label-mono hover:bg-surface-variant transition-all" href="#">
+<span class="material-symbols-outlined">person</span> About
+            </a>
+<a class="text-on-surface-variant p-4 flex items-center gap-4 font-label-mono text-label-mono hover:bg-surface-variant transition-all" href="#">
+<span class="material-symbols-outlined">work</span> Work
+            </a>
+<a class="text-on-surface-variant p-4 flex items-center gap-4 font-label-mono text-label-mono hover:bg-surface-variant transition-all" href="#">
+<span class="material-symbols-outlined">terminal</span> Services
+            </a>
+<a class="bg-primary-container text-on-primary-container rounded-lg p-4 flex items-center gap-4 font-label-mono text-label-mono" href="#">
+<span class="material-symbols-outlined">article</span> Blog
+            </a>
+</div>
+<div class="mt-auto p-6 border-t border-hairline">
+<p class="font-label-mono text-label-mono text-primary-fixed-dim mb-4">// Available for hire</p>
+<button class="w-full bg-primary-fixed-dim text-on-primary-fixed font-bold py-4 rounded">Hire me</button>
+</div>
+</aside>
+<script>
+        function toggleMenu() {
+            const nav = document.getElementById('side-nav');
+            const isOpen = nav.classList.contains('translate-x-0');
+            if (isOpen) {
+                nav.classList.remove('translate-x-0');
+                nav.classList.add('translate-x-full');
+                nav.style.pointerEvents = 'none';
+            } else {
+                nav.classList.remove('translate-x-full');
+                nav.classList.add('translate-x-0');
+                nav.style.pointerEvents = 'auto';
+            }
+        }
+    </script>
+</body></html>

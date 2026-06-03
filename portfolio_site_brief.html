@@ -1,0 +1,142 @@
+
+<style>
+  .brief-wrap { padding: 1.5rem 0; font-family: var(--font-sans); color: var(--color-text-primary); }
+  .brief-header { margin-bottom: 2rem; }
+  .brief-header h1 { font-size: 22px; font-weight: 500; margin: 0 0 6px; }
+  .brief-header p { font-size: 14px; color: var(--color-text-secondary); margin: 0; }
+  .section { margin-bottom: 2rem; }
+  .section-label { font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-text-tertiary); margin-bottom: 12px; }
+  .page-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; }
+  .page-card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 14px 16px; }
+  .page-card .pg-num { font-size: 11px; color: var(--color-text-tertiary); margin: 0 0 4px; }
+  .page-card .pg-name { font-size: 15px; font-weight: 500; margin: 0 0 6px; }
+  .page-card .pg-desc { font-size: 12px; color: var(--color-text-secondary); margin: 0; line-height: 1.5; }
+  .pill-row { display: flex; flex-wrap: wrap; gap: 8px; }
+  .pill { font-size: 13px; background: var(--color-background-secondary); border: 0.5px solid var(--color-border-tertiary); border-radius: 99px; padding: 4px 14px; color: var(--color-text-secondary); }
+  .goal-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; }
+  .goal-card { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 12px 14px; }
+  .goal-card .gc-icon { font-size: 18px; color: var(--color-text-secondary); margin-bottom: 6px; }
+  .goal-card .gc-title { font-size: 13px; font-weight: 500; margin: 0 0 2px; }
+  .goal-card .gc-sub { font-size: 12px; color: var(--color-text-secondary); margin: 0; }
+  .tone-row { display: flex; flex-wrap: wrap; gap: 8px; }
+  .tone-pill { font-size: 13px; padding: 5px 16px; border-radius: 99px; font-weight: 500; }
+  .tone-bold { background: #EEEDFE; color: #3C3489; }
+  .tone-corp { background: #E6F1FB; color: #0C447C; }
+  .tone-dark { background: #2C2C2A; color: #D3D1C7; }
+  .divider { border: none; border-top: 0.5px solid var(--color-border-tertiary); margin: 0 0 2rem; }
+  .cta-row { display: flex; gap: 10px; flex-wrap: wrap; }
+  .cta-row button { cursor: pointer; }
+</style>
+
+<div class="brief-wrap">
+  <div class="brief-header">
+    <h1>Personal portfolio — site brief</h1>
+    <p>Full-stack web developer · Freelance clients, job opportunities & personal brand</p>
+  </div>
+
+  <hr class="divider">
+
+  <div class="section">
+    <div class="section-label">Goals</div>
+    <div class="goal-row">
+      <div class="goal-card">
+        <div class="gc-icon"><i class="ti ti-briefcase" aria-hidden="true"></i></div>
+        <div class="gc-title">Win freelance work</div>
+        <div class="gc-sub">Clear services & pricing signal</div>
+      </div>
+      <div class="goal-card">
+        <div class="gc-icon"><i class="ti ti-building" aria-hidden="true"></i></div>
+        <div class="gc-title">Land full-time roles</div>
+        <div class="gc-sub">Résumé + skills front & centre</div>
+      </div>
+      <div class="goal-card">
+        <div class="gc-icon"><i class="ti ti-brand-github" aria-hidden="true"></i></div>
+        <div class="gc-title">Showcase work</div>
+        <div class="gc-sub">Portfolio with live demos</div>
+      </div>
+      <div class="goal-card">
+        <div class="gc-icon"><i class="ti ti-antenna" aria-hidden="true"></i></div>
+        <div class="gc-title">Build a brand</div>
+        <div class="gc-sub">Voice, blog, online presence</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Visual direction</div>
+    <div class="tone-row">
+      <span class="tone-pill tone-bold">Bold & creative</span>
+      <span class="tone-pill tone-corp">Clean & corporate</span>
+      <span class="tone-pill tone-dark">Dark & developer-y</span>
+    </div>
+    <p style="font-size:13px; color: var(--color-text-secondary); margin-top: 10px;">Dark default theme · strong typographic hierarchy · subtle code-aesthetic accents · clean on desktop and mobile</p>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Pages</div>
+    <div class="page-grid">
+      <div class="page-card">
+        <p class="pg-num">01</p>
+        <p class="pg-name">Home / Hero</p>
+        <p class="pg-desc">Punchy headline, one-liner value prop, two CTAs: hire me & view work</p>
+      </div>
+      <div class="page-card">
+        <p class="pg-num">02</p>
+        <p class="pg-name">About</p>
+        <p class="pg-desc">Story, tech stack, years of experience, downloadable CV</p>
+      </div>
+      <div class="page-card">
+        <p class="pg-num">03</p>
+        <p class="pg-name">Portfolio</p>
+        <p class="pg-desc">Project cards with live demo + GitHub links, tech tags, filter by type</p>
+      </div>
+      <div class="page-card">
+        <p class="pg-num">04</p>
+        <p class="pg-name">Services</p>
+        <p class="pg-desc">What you offer, rough pricing or engagement model, who it's for</p>
+      </div>
+      <div class="page-card">
+        <p class="pg-num">05</p>
+        <p class="pg-name">Blog</p>
+        <p class="pg-desc">Short posts on projects, opinions, learnings — signals expertise</p>
+      </div>
+      <div class="page-card">
+        <p class="pg-num">06</p>
+        <p class="pg-name">Contact</p>
+        <p class="pg-desc">Form + calendar link + LinkedIn. Single clear call to action</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Tech stack recommendation</div>
+    <div class="pill-row">
+      <span class="pill">Next.js (App Router)</span>
+      <span class="pill">TypeScript</span>
+      <span class="pill">Tailwind CSS</span>
+      <span class="pill">Framer Motion</span>
+      <span class="pill">MDX for blog</span>
+      <span class="pill">Vercel deploy</span>
+      <span class="pill">Resend / EmailJS</span>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Key content to prepare</div>
+    <div class="pill-row">
+      <span class="pill"><i class="ti ti-file-cv" aria-hidden="true" style="margin-right:5px"></i>Updated CV (PDF)</span>
+      <span class="pill"><i class="ti ti-photo" aria-hidden="true" style="margin-right:5px"></i>Headshot</span>
+      <span class="pill"><i class="ti ti-code" aria-hidden="true" style="margin-right:5px"></i>3–5 project write-ups</span>
+      <span class="pill"><i class="ti ti-list" aria-hidden="true" style="margin-right:5px"></i>Services & rates</span>
+      <span class="pill"><i class="ti ti-pencil" aria-hidden="true" style="margin-right:5px"></i>1–2 blog posts</span>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="cta-row">
+    <button onclick="sendPrompt('Generate a homepage hero section copy for my full-stack developer portfolio')">Write hero copy ↗</button>
+    <button onclick="sendPrompt('Help me write my services page for my full-stack developer portfolio')">Draft services page ↗</button>
+    <button onclick="sendPrompt('Build me the homepage in Next.js and Tailwind based on the brief')">Scaffold the homepage ↗</button>
+  </div>
+</div>

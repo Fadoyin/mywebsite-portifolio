@@ -1,0 +1,308 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@700;800&amp;family=Hanken+Grotesk:wght@400;500&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-high": "#2a2a2b",
+                    "tertiary": "#ffffff",
+                    "surface-container-highest": "#353436",
+                    "on-secondary-fixed": "#1b1b1f",
+                    "on-tertiary-fixed-variant": "#474744",
+                    "surface": "#131314",
+                    "on-surface-variant": "#c3c9b0",
+                    "on-secondary-fixed-variant": "#47464b",
+                    "tertiary-fixed-dim": "#c8c6c3",
+                    "surface-container-low": "#1c1b1c",
+                    "on-primary-fixed-variant": "#374e00",
+                    "on-tertiary-container": "#656462",
+                    "primary-fixed-dim": "#a3d728",
+                    "surface-container": "#201f20",
+                    "inverse-on-surface": "#313031",
+                    "inverse-surface": "#e5e2e3",
+                    "tertiary-fixed": "#e5e2df",
+                    "surface-variant": "#353436",
+                    "on-secondary-container": "#b6b4ba",
+                    "on-primary": "#253600",
+                    "terminal-cursor": "#C2F94A",
+                    "surface-tint": "#a3d728",
+                    "surface-bright": "#3a393a",
+                    "error": "#ffb4ab",
+                    "surface-container-lowest": "#0e0e0f",
+                    "secondary": "#c8c5cb",
+                    "on-error": "#690005",
+                    "outline": "#8d937c",
+                    "on-background": "#e5e2e3",
+                    "primary": "#ffffff",
+                    "on-tertiary-fixed": "#1b1c1a",
+                    "text-muted": "#A1A1AA",
+                    "on-primary-container": "#506e00",
+                    "on-tertiary": "#30302e",
+                    "outline-variant": "#434935",
+                    "primary-fixed": "#bef446",
+                    "primary-container": "#bef446",
+                    "secondary-container": "#47464b",
+                    "background": "#131314",
+                    "on-secondary": "#303034",
+                    "text-primary": "#F4F3EE",
+                    "on-surface": "#e5e2e3",
+                    "inverse-primary": "#4b6700",
+                    "error-container": "#93000a",
+                    "on-error-container": "#ffdad6",
+                    "secondary-fixed-dim": "#c8c5cb",
+                    "tertiary-container": "#e5e2df",
+                    "on-primary-fixed": "#141f00",
+                    "border-hairline": "rgba(255, 255, 255, 0.08)",
+                    "secondary-fixed": "#e4e1e7",
+                    "surface-dim": "#131314"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "max-width": "1180px",
+                    "grid-gutter": "1.5rem",
+                    "component-gap": "2rem",
+                    "card-padding": "2rem",
+                    "section-gap": "8rem"
+            },
+            "fontFamily": {
+                    "display-xl-mobile": ["Epilogue"],
+                    "label-code": ["JetBrains Mono"],
+                    "display-xl": ["Epilogue"],
+                    "body-md": ["Hanken Grotesk"],
+                    "headline-lg": ["Epilogue"],
+                    "label-mono": ["JetBrains Mono"],
+                    "body-sm": ["Hanken Grotesk"]
+            },
+            "fontSize": {
+                    "display-xl-mobile": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "label-code": ["13px", {"lineHeight": "1.4", "fontWeight": "400"}],
+                    "display-xl": ["92px", {"lineHeight": "1.0", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-mono": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { background-color: #0A0A0B; color: #e5e2e3; }
+        .grid-blueprint {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .tech-pill:hover {
+            box-shadow: 0 0 15px rgba(163, 215, 40, 0.3);
+            border-color: #a3d728;
+            color: #a3d728;
+        }
+    </style>
+</head>
+<body class="font-body-md selection:bg-primary-fixed-dim selection:text-on-primary">
+<!-- Top Navigation Bar -->
+<header class="bg-surface/80 dark:bg-surface/80 backdrop-blur-xl docked full-width top-0 sticky border-b border-hairline z-50">
+<nav class="flex justify-between items-center w-full px-6 py-4 max-w-max-width mx-auto z-50">
+<div class="font-display-xl-mobile text-body-md font-bold text-on-surface flex items-center gap-2 after:content-[''] after:w-2 after:h-2 after:bg-primary-fixed-dim after:rounded-full after:animate-pulse">
+                jordan.dev
+            </div>
+<div class="hidden md:flex items-center gap-8 font-body-md text-body-md uppercase tracking-wider">
+<a class="text-on-surface-variant font-medium hover:text-primary-fixed-dim transition-colors duration-200" href="#">Home</a>
+<a class="text-primary-fixed-dim font-bold border-b border-primary-fixed-dim pb-1" href="#">About</a>
+<a class="text-on-surface-variant font-medium hover:text-primary-fixed-dim transition-colors duration-200" href="#">Work</a>
+<a class="text-on-surface-variant font-medium hover:text-primary-fixed-dim transition-colors duration-200" href="#">Services</a>
+<a class="text-on-surface-variant font-medium hover:text-primary-fixed-dim transition-colors duration-200" href="#">Blog</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary-fixed-dim transition-colors">dark_mode</button>
+<button class="bg-primary-fixed text-on-primary-fixed font-bold px-4 py-2 rounded transition-transform active:scale-95">Hire me</button>
+<button class="md:hidden material-symbols-outlined text-on-surface" onclick="toggleMobileNav()">menu</button>
+</div>
+</nav>
+</header>
+<!-- Mobile Side Navigation (Drawer) -->
+<div class="fixed inset-0 z-[60] flex flex-col w-full md:hidden bg-surface-container-highest dark:bg-surface-container-highest translate-x-full transition-transform duration-300" id="mobile-nav">
+<div class="p-6 border-b border-hairline flex justify-between items-center">
+<span class="font-display-xl-mobile text-headline-lg font-bold text-on-surface">jordan.dev</span>
+<button class="material-symbols-outlined text-on-surface text-3xl" onclick="toggleMobileNav()">close</button>
+</div>
+<div class="flex flex-col p-6 gap-2">
+<a class="text-on-surface-variant p-4 flex items-center gap-4 hover:bg-surface-variant transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">home</span> Home
+            </a>
+<a class="bg-primary-container text-on-primary-container rounded-lg p-4 flex items-center gap-4" href="#">
+<span class="material-symbols-outlined">person</span> About
+            </a>
+<a class="text-on-surface-variant p-4 flex items-center gap-4 hover:bg-surface-variant transition-all" href="#">
+<span class="material-symbols-outlined">work</span> Work
+            </a>
+<a class="text-on-surface-variant p-4 flex items-center gap-4 hover:bg-surface-variant transition-all" href="#">
+<span class="material-symbols-outlined">terminal</span> Services
+            </a>
+<a class="text-on-surface-variant p-4 flex items-center gap-4 hover:bg-surface-variant transition-all" href="#">
+<span class="material-symbols-outlined">article</span> Blog
+            </a>
+</div>
+<div class="mt-auto p-6 border-t border-hairline">
+<p class="font-label-mono text-label-mono text-primary-fixed-dim mb-4">// Available for hire</p>
+<button class="w-full bg-primary-fixed text-on-primary-fixed font-bold py-4 rounded-lg">Hire me</button>
+</div>
+</div>
+<!-- Main Content -->
+<main class="max-w-max-width mx-auto px-6 py-12 md:py-24 grid-blueprint">
+<!-- About Section -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-grid-gutter items-start">
+<!-- Left Column: Portrait & Timeline -->
+<div class="md:col-span-5 space-y-12">
+<div class="relative group">
+<div class="absolute -inset-1 bg-primary-fixed-dim opacity-10 blur-sm group-hover:opacity-20 transition-opacity"></div>
+<div class="relative border border-hairline bg-surface overflow-hidden aspect-[4/5]">
+<div class="h-8 bg-surface-container-high flex items-center px-4 gap-2 border-b border-hairline">
+<div class="w-2.5 h-2.5 rounded-full bg-error/40"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-on-surface-variant/20"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-primary-fixed-dim/20"></div>
+</div>
+<img alt="Portrait of Jordan" class="w-full h-full object-cover grayscale brightness-75 hover:grayscale-0 transition-all duration-700" data-alt="A professional 4:5 portrait of a male software developer in his early 30s. He is photographed in natural afternoon light coming through a window, creating soft highlights on his face. The image has a subtle film grain texture and a moody, dark-mode aesthetic with deep charcoal shadows. He wears a simple black t-shirt and has a focused, thoughtful expression. The background is a blurred, minimalist studio setup with technical equipment in the far distance." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRKM5Kt4ABYEVc4oOWvfrXhdsTWzIOqxBsIFb4HuL7c81GGphi-ZYTlGEnarKFulIH4V0aesY0H8MK51lWV6KwTURj1py90cGSgai_W1ZerssTCLD5XKaPmNFK1c8hyUNDrEMetWClcPdhWGOugp7riXKtsmpovywhegP_kGmBjTbS944MNOcIXalCoTRpU8TvMY7awCD279rE0gWdKvSXnbqN4TOYPMNiSEKtbWPHb4DPAJLo3FEypd-tETFpx382-9TBs0ZjRULD">
+</div>
+</div>
+<!-- Vertical Timeline -->
+<div class="space-y-8 pl-4 border-l border-hairline">
+<div class="relative">
+<div class="absolute -left-[21px] top-1 w-2.5 h-2.5 rounded-full bg-primary-fixed-dim ring-4 ring-background"></div>
+<p class="font-label-mono text-label-mono text-primary-fixed-dim mb-1">2021 — PRESENT</p>
+<h4 class="font-body-md font-bold text-on-surface">Independent Full-Stack Engineer</h4>
+<p class="text-body-sm text-on-surface-variant mt-2 leading-relaxed">Specializing in high-performance React architectures and rescuing legacy codebases for series A startups.</p>
+</div>
+<div class="relative">
+<div class="absolute -left-[21px] top-1 w-2.5 h-2.5 rounded-full bg-surface-container-highest ring-4 ring-background border border-hairline"></div>
+<p class="font-label-mono text-label-mono text-on-surface-variant mb-1">2018 — 2021</p>
+<h4 class="font-body-md font-bold text-on-surface">Senior Developer @ Linear Systems</h4>
+<p class="text-body-sm text-on-surface-variant mt-2 leading-relaxed">Lead the core platform team in transitioning a monolithic architecture to a modern distributed micro-frontend system.</p>
+</div>
+<div class="relative">
+<div class="absolute -left-[21px] top-1 w-2.5 h-2.5 rounded-full bg-surface-container-highest ring-4 ring-background border border-hairline"></div>
+<p class="font-label-mono text-label-mono text-on-surface-variant mb-1">2015 — 2018</p>
+<h4 class="font-body-md font-bold text-on-surface">UI/UX Engineer @ Pixel Craft</h4>
+<p class="text-body-sm text-on-surface-variant mt-2 leading-relaxed">Bridging the gap between design and development for premium digital experiences.</p>
+</div>
+</div>
+</div>
+<!-- Right Column: Content & Tech -->
+<div class="md:col-span-7 md:pl-12 pt-4">
+<span class="font-label-mono text-label-mono text-primary-fixed-dim block mb-6">// 02 — ABOUT</span>
+<h1 class="font-display-xl text-headline-lg md:text-display-xl text-on-surface mb-10">
+                    A developer who handles both sides of the stack.
+                </h1>
+<div class="space-y-6 max-w-2xl">
+<p class="font-body-md text-on-surface leading-relaxed text-lg">
+                        I am a builder who believes that high-performance code and impeccable design are inseparable. With over 8 years of experience across the full product lifecycle, I provide a bridge between complex technical requirements and intuitive user experiences.
+                    </p>
+<p class="font-body-md text-on-surface-variant leading-relaxed">
+                        My expertise lies in end-to-end engineering—architecting scalable backends that stay quiet under pressure and crafting frontends that feel tactile and responsive. I have a particular affinity for "legacy rescue"—stepping into messy codebases and systematically transforming them into maintainable, modern systems without breaking production.
+                    </p>
+</div>
+<!-- Tech Stack Pills -->
+<div class="mt-16">
+<p class="font-label-mono text-label-mono text-primary-fixed-dim mb-6">// CORE STACK</p>
+<div class="flex flex-wrap gap-3">
+<span class="tech-pill px-4 py-2 bg-surface-container border border-hairline font-label-mono text-label-mono text-on-surface rounded-full transition-all duration-300 cursor-default">React</span>
+<span class="tech-pill px-4 py-2 bg-surface-container border border-hairline font-label-mono text-label-mono text-on-surface rounded-full transition-all duration-300 cursor-default">Next.js</span>
+<span class="tech-pill px-4 py-2 bg-surface-container border border-hairline font-label-mono text-label-mono text-on-surface rounded-full transition-all duration-300 cursor-default">TypeScript</span>
+<span class="tech-pill px-4 py-2 bg-surface-container border border-hairline font-label-mono text-label-mono text-on-surface rounded-full transition-all duration-300 cursor-default">Node.js</span>
+<span class="tech-pill px-4 py-2 bg-surface-container border border-hairline font-label-mono text-label-mono text-on-surface rounded-full transition-all duration-300 cursor-default">PostgreSQL</span>
+<span class="tech-pill px-4 py-2 bg-surface-container border border-hairline font-label-mono text-label-mono text-on-surface rounded-full transition-all duration-300 cursor-default">Tailwind CSS</span>
+<span class="tech-pill px-4 py-2 bg-surface-container border border-hairline font-label-mono text-label-mono text-on-surface rounded-full transition-all duration-300 cursor-default">AWS</span>
+<span class="tech-pill px-4 py-2 bg-surface-container border border-hairline font-label-mono text-label-mono text-on-surface rounded-full transition-all duration-300 cursor-default">GraphQL</span>
+<span class="tech-pill px-4 py-2 bg-surface-container border border-hairline font-label-mono text-label-mono text-on-surface rounded-full transition-all duration-300 cursor-default">Docker</span>
+</div>
+</div>
+<!-- CTA Buttons -->
+<div class="mt-12 flex flex-wrap gap-4">
+<button class="group flex items-center gap-3 bg-primary-fixed text-on-primary-fixed font-bold px-8 py-4 rounded transition-all active:scale-95 hover:bg-primary-fixed-dim">
+<span class="material-symbols-outlined">download</span>
+<span>↓ Download CV</span>
+</button>
+<button class="flex items-center gap-3 border border-hairline text-on-surface font-bold px-8 py-4 rounded transition-all hover:border-on-surface active:scale-95">
+                        Get in touch
+                    </button>
+</div>
+</div>
+</section>
+<!-- Stats Section (Subtle Data Density) -->
+<section class="mt-section-gap border-t border-hairline pt-12 grid grid-cols-2 md:grid-cols-4 gap-8">
+<div>
+<p class="font-label-mono text-label-mono text-primary-fixed-dim mb-2">PROJECTS SHIPPED</p>
+<p class="font-display-xl-mobile text-headline-lg text-on-surface">42+</p>
+</div>
+<div>
+<p class="font-label-mono text-label-mono text-primary-fixed-dim mb-2">LINES OF CODE</p>
+<p class="font-display-xl-mobile text-headline-lg text-on-surface">1.2M</p>
+</div>
+<div>
+<p class="font-label-mono text-label-mono text-primary-fixed-dim mb-2">HAPPY CLIENTS</p>
+<p class="font-display-xl-mobile text-headline-lg text-on-surface">18</p>
+</div>
+<div>
+<p class="font-label-mono text-label-mono text-primary-fixed-dim mb-2">RESCUES PERFORMED</p>
+<p class="font-display-xl-mobile text-headline-lg text-on-surface">06</p>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface dark:bg-surface border-t border-hairline mt-section-gap">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-6 py-12 max-w-max-width mx-auto">
+<div class="font-display-xl text-headline-lg text-on-surface opacity-10 mb-8 md:mb-0">
+                jordan.dev
+            </div>
+<div class="flex flex-col items-center md:items-end gap-6">
+<div class="flex gap-8 font-label-mono text-label-mono uppercase">
+<a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#">Github</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#">LinkedIn</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#">Twitter</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#">Email</a>
+</div>
+<div class="font-label-mono text-label-mono uppercase text-on-surface-variant tracking-widest opacity-50">
+                    © 2024 JORDAN.DEV — BUILT WITH PRECISION
+                </div>
+</div>
+</div>
+</footer>
+<script>
+        function toggleMobileNav() {
+            const nav = document.getElementById('mobile-nav');
+            const isHidden = nav.classList.contains('translate-x-full');
+            if (isHidden) {
+                nav.classList.remove('translate-x-full');
+            } else {
+                nav.classList.add('translate-x-full');
+            }
+        }
+
+        // Add a subtle parallax effect to the grid background
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const blueprint = document.querySelector('.grid-blueprint');
+            if (blueprint) {
+                blueprint.style.backgroundPositionY = -(scrolled * 0.1) + 'px';
+            }
+        });
+    </script>
+</body></html>
