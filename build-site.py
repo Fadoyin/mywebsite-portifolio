@@ -423,6 +423,8 @@ def main() -> None:
     for out_name, source, active in PAGES:
         process(out_name, source, active)
     localize_images()
+    (SITE / "CNAME").write_text(f"{DOMAIN}\n", encoding="utf-8")
+    (SITE / ".nojekyll").touch()
     (ROOT / "index.html").write_text(
         '<!DOCTYPE html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n'
         '<meta http-equiv="refresh" content="0; url=site/index.html">\n'

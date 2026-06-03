@@ -2,7 +2,19 @@
 
 Your live site should be the contents of the **`site/`** folder (built by `python3 build-site.py`), not the project root.
 
-## Option A — Netlify (recommended, free SSL)
+## Option A — GitHub Pages (automatic from this repo)
+
+Pushes to `main` deploy via GitHub Actions (see `.github/workflows/deploy.yml`).
+
+1. [github.com/Fadoyin/mywebsite-portifolio/settings/pages](https://github.com/Fadoyin/mywebsite-portifolio/settings/pages) → **Source: GitHub Actions**.
+2. Wait for the **Build and deploy to GitHub Pages** workflow to finish (Actions tab).
+3. On the Pages settings page, set **Custom domain** → `taiwofadoyin.co.uk` → **Save** → enable **Enforce HTTPS** when offered.
+4. **Google Workspace domain DNS** (Google Domains / Squarespace, or Admin → Domains):
+   - GitHub will show required records after you add the custom domain.
+   - For apex `taiwofadoyin.co.uk`, you typically add **four A records** pointing to GitHub Pages IPs (shown in the Pages UI), and optionally a **CNAME** for `www` → `fadoyin.github.io` (your Pages host).
+5. DNS can take up to 24–48 hours; then visit **https://taiwofadoyin.co.uk**.
+
+## Option B — Netlify (free SSL)
 
 1. Create a free account at [netlify.com](https://www.netlify.com).
 2. **Add new site → Deploy manually** (drag the `site` folder), **or** connect Git and set:
@@ -18,14 +30,14 @@ Your live site should be the contents of the **`site/`** folder (built by `pytho
 
 After deploy, open **https://taiwofadoyin.co.uk** — not localhost.
 
-## Option B — Cloudflare Pages
+## Option C — Cloudflare Pages
 
 1. [dash.cloudflare.com](https://dash.cloudflare.com) → **Workers & Pages** → Create → Pages → Upload `site` or connect Git.
 2. Build: `python3 build-site.py`, output directory: `site`.
 3. **Custom domains** → add `taiwofadoyin.co.uk`.
 4. If the domain is already on Cloudflare, DNS is added for you.
 
-## Option C — Any web host (cPanel, etc.)
+## Option D — Any web host (cPanel, etc.)
 
 1. Run `python3 build-site.py`.
 2. Upload everything inside **`site/`** to `public_html` (or `www`).
