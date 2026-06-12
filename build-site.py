@@ -80,6 +80,7 @@ LOCAL_PORTRAIT = (
 
 DOMAIN = "taiwofadoyin.co.uk"
 SITE_URL = f"https://{DOMAIN}"
+NETLIFY_SITE = "silver-salamander-e34651.netlify.app"
 EMAIL = f"contact@{DOMAIN}"
 LINKEDIN = "https://www.linkedin.com/in/taiwo-fadoyin-119726209/"
 CONTACT_FORM_PATH = "contact.html#contact-form"
@@ -632,6 +633,16 @@ def wire_contact_form(html: str) -> str:
     return html
 
 
+def write_canonical_redirects() -> None:
+    (SITE / "_redirects").write_text(
+        f"https://{NETLIFY_SITE}/*  {SITE_URL}/:splat  301!\n"
+        f"http://{DOMAIN}/*  {SITE_URL}/:splat  301!\n"
+        f"https://www.{DOMAIN}/*  {SITE_URL}/:splat  301!\n"
+        f"http://www.{DOMAIN}/*  {SITE_URL}/:splat  301!\n",
+        encoding="utf-8",
+    )
+
+
 def write_netlify_forms_detection() -> None:
     (SITE / "forms.html").write_text(
         "<!DOCTYPE html>\n<html><head><title>Forms</title></head><body>\n"
@@ -669,6 +680,7 @@ def main() -> None:
     for out_name, source, active in PAGES:
         process(out_name, source, active)
     localize_images()
+    write_canonical_redirects()
     write_netlify_forms_detection()
     (SITE / "CNAME").write_text(f"{DOMAIN}\n", encoding="utf-8")
     (SITE / ".nojekyll").touch()
