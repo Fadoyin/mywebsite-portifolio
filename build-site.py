@@ -30,20 +30,39 @@ NAV_FILES = {
 }
 
 DRAWER_ICONS = {
-    "home": "index.html",
-    "person": "about.html",
-    "work": "work.html",
-    "terminal": "services.html",
-    "article": "blog.html",
+    "Home": ("home", "index.html"),
+    "About": ("person", "about.html"),
+    "Work": ("work", "work.html"),
+    "Services": ("terminal", "services.html"),
+    "Blog": ("article", "blog.html"),
 }
 
-ACTIVE_CLASS = (
-    "text-primary-fixed-dim font-bold border-b border-primary-fixed-dim pb-1"
+NAV_LINK_BASE = "font-body-md text-body-md uppercase tracking-wider"
+NAV_LINK_ACTIVE = (
+    f"{NAV_LINK_BASE} text-primary-fixed-dim font-bold border-b "
+    "border-primary-fixed-dim pb-1 transition-colors duration-200"
 )
-INACTIVE_CLASS = (
-    "text-on-surface-variant font-medium hover:text-primary-fixed-dim "
-    "transition-colors duration-200"
+NAV_LINK_INACTIVE = (
+    f"{NAV_LINK_BASE} text-on-surface-variant font-medium "
+    "hover:text-primary-fixed-dim transition-colors duration-200"
 )
+
+NAV_SCRIPT = """<script id="site-nav-script">
+    (function () {
+        const mobileToggle = document.getElementById('mobile-menu-toggle');
+        const sideNav = document.getElementById('side-nav');
+        const sideNavClose = document.getElementById('side-nav-close');
+        const sideNavOverlay = document.getElementById('side-nav-overlay');
+        if (!mobileToggle || !sideNav) return;
+        function toggleMenu() {
+            sideNav.classList.toggle('translate-x-full');
+            document.body.classList.toggle('overflow-hidden');
+        }
+        mobileToggle.addEventListener('click', toggleMenu);
+        if (sideNavClose) sideNavClose.addEventListener('click', toggleMenu);
+        if (sideNavOverlay) sideNavOverlay.addEventListener('click', toggleMenu);
+    })();
+</script>"""
 
 # Private Stitch URLs often fail in the browser; use the public portrait export.
 PORTRAIT_PRIVATE = (
@@ -84,6 +103,114 @@ IMAGE_URL_KEYS = (
 )
 
 
+def render_site_header(active: str) -> str:
+    nav_links = "\n".join(
+        f'<a class="{NAV_LINK_ACTIVE if label == active else NAV_LINK_INACTIVE}" '
+        f'href="{href}">{label}</a>'
+        for label, href in NAV_FILES.items()
+    )
+    drawer_links = "\n".join(
+        (
+            f'<a class="{"bg-primary-container text-on-primary-container rounded-lg p-4 flex items-center gap-4 font-label-mono text-label-mono transition-all" if label == active else "text-on-surface-variant p-4 flex items-center gap-4 font-label-mono text-label-mono hover:bg-surface-variant transition-all"}" '
+            f'href="{href}">\n'
+            f'<span class="material-symbols-outlined" data-icon="{icon}">{icon}</span> {label}\n'
+            f"            </a>"
+        )
+        for label, (icon, href) in DRAWER_ICONS.items()
+    )
+    return f"""<!-- Site header (unified) -->
+<nav class="docked full-width top-0 sticky z-50 bg-surface/80 dark:bg-surface/80 backdrop-blur-xl border-b border-hairline">
+<div class="flex justify-between items-center w-full px-6 py-4 max-w-max-width mx-auto">
+<a href="index.html" class="font-display-xl-mobile text-body-md font-bold text-on-surface flex items-center gap-2 after:content-[''] after:w-2 after:h-2 after:bg-primary-fixed-dim after:rounded-full after:animate-pulse hover:text-primary-fixed-dim transition-colors">Taiwo Fadoyin</a>
+<div class="hidden md:flex items-center gap-8">
+{nav_links}
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-on-surface-variant hover:text-primary-fixed-dim transition-colors" type="button" aria-label="Toggle theme">
+<span class="material-symbols-outlined" data-icon="dark_mode">dark_mode</span>
+</button>
+<a href="contact.html" class="hidden md:block bg-primary-fixed-dim text-on-primary px-6 py-2.5 rounded font-bold hover:brightness-110 active:scale-95 transition-all">Hire me</a>
+<button class="md:hidden text-on-surface" id="mobile-menu-toggle" type="button" aria-label="Open menu">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- Mobile drawer (unified) -->
+<div class="fixed inset-0 z-[60] flex flex-col w-full md:hidden translate-x-full transition-transform duration-300" id="side-nav">
+<div class="absolute inset-0 bg-black/50 backdrop-blur-sm" id="side-nav-overlay"></div>
+<div class="relative ml-auto w-4/5 h-full bg-surface-container-highest flex flex-col border-l border-hairline shadow-2xl p-6">
+<div class="flex justify-between items-center mb-12">
+<a href="index.html" class="font-display-xl-mobile text-headline-lg font-bold text-on-surface hover:text-primary-fixed-dim transition-colors">Taiwo Fadoyin</a>
+<button id="side-nav-close" type="button" aria-label="Close menu">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+</div>
+<div class="flex flex-col gap-2 flex-grow">
+{drawer_links}
+</div>
+<div class="mt-auto pt-6 border-t border-hairline">
+<p class="font-label-mono text-label-mono text-on-surface-variant mb-4">// Available for hire</p>
+<a href="contact.html" class="w-full bg-primary-fixed-dim text-on-primary p-4 rounded-lg font-bold text-center block">Hire me</a>
+</div>
+</div>
+</div>"""
+
+
+def strip_legacy_header(html: str) -> str:
+    html = re.sub(
+        r"<!-- Side Navigation \(Mobile Drawer\) -->.*?</aside>\s*",
+        "",
+        html,
+        flags=re.DOTALL,
+    )
+    html = re.sub(
+        r"(<body[^>]*>).*?(<main\b)",
+        r"\1\n\2",
+        html,
+        count=1,
+        flags=re.DOTALL | re.IGNORECASE,
+    )
+    return html
+
+
+def remove_legacy_nav_scripts(html: str) -> str:
+    html = re.sub(
+        r"<script>\s*function toggle(?:Menu|Nav|MobileNav)\(\)[\s\S]*?</script>\s*",
+        "",
+        html,
+    )
+    html = re.sub(
+        r"\s*const mobileToggle = document\.getElementById\('mobile-menu-toggle'\);"
+        r"[\s\S]*?sideNavOverlay\.addEventListener\('click', toggleMenu\);\s*",
+        "\n",
+        html,
+    )
+    html = re.sub(
+        r"\s*const menuToggle = document\.getElementById\('menu-toggle'\);"
+        r"[\s\S]*?menuToggle\.addEventListener\('click', toggleMenu\);\s*",
+        "\n",
+        html,
+    )
+    return html
+
+
+def inject_unified_header(html: str, active: str) -> str:
+    html = strip_legacy_header(html)
+    header = render_site_header(active if active in NAV_LABELS else "Home")
+    html = re.sub(
+        r"(<body[^>]*>)",
+        rf"\1\n{header}\n",
+        html,
+        count=1,
+        flags=re.IGNORECASE,
+    )
+    html = remove_legacy_nav_scripts(html)
+    if 'id="site-nav-script"' not in html:
+        html = re.sub(r"</body>", NAV_SCRIPT + "\n</body>", html, count=1, flags=re.IGNORECASE)
+    return html
+
+
 def replace_nav_hrefs(html: str) -> str:
     for label, target in NAV_FILES.items():
         html = html.replace(f'href="#">{label}', f'href="{target}">{label}')
@@ -100,7 +227,7 @@ def replace_nav_hrefs(html: str) -> str:
 
 
 def fix_drawer_icon_links(html: str) -> str:
-    for icon, target in DRAWER_ICONS.items():
+    for _label, (icon, target) in DRAWER_ICONS.items():
         html = re.sub(
             rf'href="#"(>\s*<span class="material-symbols-outlined"[^>]*>{icon}</span>)',
             f'href="{target}"\\1',
@@ -261,36 +388,6 @@ def about_ctas(html: str) -> str:
     return html
 
 
-def set_active_nav(html: str, active: str) -> str:
-    for label in NAV_LABELS:
-        target = NAV_FILES[label]
-        if label == active:
-            html = re.sub(
-                rf'(<a class=")[^"]*(" href="{re.escape(target)}">){re.escape(label)}',
-                rf"\1{ACTIVE_CLASS}\2{label}",
-                html,
-            )
-            html = re.sub(
-                rf'(<a class=")font-body-md text-body-sm[^"]*(" href="{re.escape(target)}">)'
-                rf"{re.escape(label)}",
-                rf"\1{ACTIVE_CLASS}\2{label}",
-                html,
-            )
-        else:
-            html = re.sub(
-                rf'(<a class=")[^"]*(" href="{re.escape(target)}">){re.escape(label)}',
-                rf"\1{INACTIVE_CLASS}\2{label}",
-                html,
-            )
-            html = re.sub(
-                rf'(<a class=")font-body-md text-body-sm[^"]*(" href="{re.escape(target)}">)'
-                rf"{re.escape(label)}",
-                rf'\1font-body-md text-body-sm uppercase tracking-wider {INACTIVE_CLASS}\2{label}',
-                html,
-            )
-    return html
-
-
 def canonical_url(filename: str) -> str:
     if filename == "index.html":
         return f"{SITE_URL}/"
@@ -402,17 +499,14 @@ def localize_images() -> None:
 def process(filename: str, source: str, active: str) -> None:
     html = (ROOT / source).read_text(encoding="utf-8")
     html = fix_portrait_url(html)
-    html = replace_nav_hrefs(html)
-    html = fix_drawer_icon_links(html)
-    html = brand_link(html)
-    html = hire_me_links(html)
     html = apply_contact_details(html)
     html = apply_domain(html, filename)
     if filename == "index.html":
         html = home_ctas(html)
     if filename == "about.html":
         html = about_ctas(html)
-    html = set_active_nav(html, active if active in NAV_LABELS else "Home")
+    html = hire_me_links(html)
+    html = inject_unified_header(html, active)
     (SITE / filename).write_text(html, encoding="utf-8")
 
 

@@ -128,23 +128,62 @@
     </style>
 </head>
 <body class="font-body-md text-body-md selection:bg-primary-fixed-dim selection:text-on-primary">
-<!-- Top Navigation Shell -->
-<nav class="bg-surface/80 dark:bg-surface/80 backdrop-blur-xl border-b border-hairline docked full-width top-0 sticky z-50">
+<!-- Site header (unified) -->
+<nav class="docked full-width top-0 sticky z-50 bg-surface/80 dark:bg-surface/80 backdrop-blur-xl border-b border-hairline">
 <div class="flex justify-between items-center w-full px-6 py-4 max-w-max-width mx-auto">
-<a class="font-display-xl-mobile text-body-md font-bold text-on-surface flex items-center gap-2 hover:text-primary-fixed-dim transition-colors" href="index.html">Taiwo Fadoyin</a>
+<a href="index.html" class="font-display-xl-mobile text-body-md font-bold text-on-surface flex items-center gap-2 after:content-[''] after:w-2 after:h-2 after:bg-primary-fixed-dim after:rounded-full after:animate-pulse hover:text-primary-fixed-dim transition-colors">Taiwo Fadoyin</a>
 <div class="hidden md:flex items-center gap-8">
-<a class="text-on-surface-variant font-medium hover:text-primary-fixed-dim transition-colors duration-200" href="index.html">Home</a>
-<a class="text-on-surface-variant font-medium hover:text-primary-fixed-dim transition-colors duration-200" href="about.html">About</a>
-<a class="text-on-surface-variant font-medium hover:text-primary-fixed-dim transition-colors duration-200" href="work.html">Work</a>
-<a class="text-on-surface-variant font-medium hover:text-primary-fixed-dim transition-colors duration-200" href="services.html">Services</a>
-<a class="text-primary-fixed-dim font-bold border-b border-primary-fixed-dim pb-1" href="blog.html">Blog</a>
+<a class="font-body-md text-body-md uppercase tracking-wider text-on-surface-variant font-medium hover:text-primary-fixed-dim transition-colors duration-200" href="index.html">Home</a>
+<a class="font-body-md text-body-md uppercase tracking-wider text-on-surface-variant font-medium hover:text-primary-fixed-dim transition-colors duration-200" href="about.html">About</a>
+<a class="font-body-md text-body-md uppercase tracking-wider text-on-surface-variant font-medium hover:text-primary-fixed-dim transition-colors duration-200" href="work.html">Work</a>
+<a class="font-body-md text-body-md uppercase tracking-wider text-on-surface-variant font-medium hover:text-primary-fixed-dim transition-colors duration-200" href="services.html">Services</a>
+<a class="font-body-md text-body-md uppercase tracking-wider text-primary-fixed-dim font-bold border-b border-primary-fixed-dim pb-1 transition-colors duration-200" href="blog.html">Blog</a>
 </div>
 <div class="flex items-center gap-4">
-<button class="material-symbols-outlined text-on-surface-variant hover:text-primary-fixed-dim transition-colors">dark_mode</button>
-<a href="contact.html" class="bg-primary-container text-on-primary font-bold px-4 py-2 rounded transition-transform active:scale-95 inline-block">Hire me</a>
+<button class="p-2 text-on-surface-variant hover:text-primary-fixed-dim transition-colors" type="button" aria-label="Toggle theme">
+<span class="material-symbols-outlined" data-icon="dark_mode">dark_mode</span>
+</button>
+<a href="contact.html" class="hidden md:block bg-primary-fixed-dim text-on-primary px-6 py-2.5 rounded font-bold hover:brightness-110 active:scale-95 transition-all">Hire me</a>
+<button class="md:hidden text-on-surface" id="mobile-menu-toggle" type="button" aria-label="Open menu">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
 </div>
 </div>
 </nav>
+<!-- Mobile drawer (unified) -->
+<div class="fixed inset-0 z-[60] flex flex-col w-full md:hidden translate-x-full transition-transform duration-300" id="side-nav">
+<div class="absolute inset-0 bg-black/50 backdrop-blur-sm" id="side-nav-overlay"></div>
+<div class="relative ml-auto w-4/5 h-full bg-surface-container-highest flex flex-col border-l border-hairline shadow-2xl p-6">
+<div class="flex justify-between items-center mb-12">
+<a href="index.html" class="font-display-xl-mobile text-headline-lg font-bold text-on-surface hover:text-primary-fixed-dim transition-colors">Taiwo Fadoyin</a>
+<button id="side-nav-close" type="button" aria-label="Close menu">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+</div>
+<div class="flex flex-col gap-2 flex-grow">
+<a class="text-on-surface-variant p-4 flex items-center gap-4 font-label-mono text-label-mono hover:bg-surface-variant transition-all" href="index.html">
+<span class="material-symbols-outlined" data-icon="home">home</span> Home
+            </a>
+<a class="text-on-surface-variant p-4 flex items-center gap-4 font-label-mono text-label-mono hover:bg-surface-variant transition-all" href="about.html">
+<span class="material-symbols-outlined" data-icon="person">person</span> About
+            </a>
+<a class="text-on-surface-variant p-4 flex items-center gap-4 font-label-mono text-label-mono hover:bg-surface-variant transition-all" href="work.html">
+<span class="material-symbols-outlined" data-icon="work">work</span> Work
+            </a>
+<a class="text-on-surface-variant p-4 flex items-center gap-4 font-label-mono text-label-mono hover:bg-surface-variant transition-all" href="services.html">
+<span class="material-symbols-outlined" data-icon="terminal">terminal</span> Services
+            </a>
+<a class="bg-primary-container text-on-primary-container rounded-lg p-4 flex items-center gap-4 font-label-mono text-label-mono transition-all" href="blog.html">
+<span class="material-symbols-outlined" data-icon="article">article</span> Blog
+            </a>
+</div>
+<div class="mt-auto pt-6 border-t border-hairline">
+<p class="font-label-mono text-label-mono text-on-surface-variant mb-4">// Available for hire</p>
+<a href="contact.html" class="w-full bg-primary-fixed-dim text-on-primary p-4 rounded-lg font-bold text-center block">Hire me</a>
+</div>
+</div>
+</div>
+
 <main class="relative min-h-screen">
 <!-- Background Grid Decoration -->
 <div class="absolute inset-0 grid-bg pointer-events-none -z-10 h-[500px]"></div>
@@ -272,47 +311,20 @@
 </div>
 </div>
 </footer>
-<!-- Side Navigation (Mobile Drawer) -->
-<aside class="fixed inset-0 z-[60] flex flex-col w-full md:hidden bg-surface-container-highest transform translate-x-full transition-transform duration-300 pointer-events-none" id="side-nav">
-<div class="p-6 flex justify-between items-center border-b border-hairline">
-<a href="index.html" class="font-display-xl-mobile text-headline-lg font-bold text-on-surface hover:text-primary-fixed-dim transition-colors">Taiwo Fadoyin</a>
-<button class="material-symbols-outlined text-on-surface" onclick="toggleMenu()">close</button>
-</div>
-<div class="flex flex-col p-4 gap-2">
-<a class="text-on-surface-variant p-4 flex items-center gap-4 font-label-mono text-label-mono hover:bg-surface-variant transition-all" href="index.html">
-<span class="material-symbols-outlined">home</span> Home
-            </a>
-<a class="text-on-surface-variant p-4 flex items-center gap-4 font-label-mono text-label-mono hover:bg-surface-variant transition-all" href="about.html">
-<span class="material-symbols-outlined">person</span> About
-            </a>
-<a class="text-on-surface-variant p-4 flex items-center gap-4 font-label-mono text-label-mono hover:bg-surface-variant transition-all" href="work.html">
-<span class="material-symbols-outlined">work</span> Work
-            </a>
-<a class="text-on-surface-variant p-4 flex items-center gap-4 font-label-mono text-label-mono hover:bg-surface-variant transition-all" href="services.html">
-<span class="material-symbols-outlined">terminal</span> Services
-            </a>
-<a class="bg-primary-container text-on-primary-container rounded-lg p-4 flex items-center gap-4 font-label-mono text-label-mono" href="blog.html">
-<span class="material-symbols-outlined">article</span> Blog
-            </a>
-</div>
-<div class="mt-auto p-6 border-t border-hairline">
-<p class="font-label-mono text-label-mono text-primary-fixed-dim mb-4">// Available for hire</p>
-<button class="w-full bg-primary-fixed-dim text-on-primary-fixed font-bold py-4 rounded">Hire me</button>
-</div>
-</aside>
-<script>
+<script id="site-nav-script">
+    (function () {
+        const mobileToggle = document.getElementById('mobile-menu-toggle');
+        const sideNav = document.getElementById('side-nav');
+        const sideNavClose = document.getElementById('side-nav-close');
+        const sideNavOverlay = document.getElementById('side-nav-overlay');
+        if (!mobileToggle || !sideNav) return;
         function toggleMenu() {
-            const nav = document.getElementById('side-nav');
-            const isOpen = nav.classList.contains('translate-x-0');
-            if (isOpen) {
-                nav.classList.remove('translate-x-0');
-                nav.classList.add('translate-x-full');
-                nav.style.pointerEvents = 'none';
-            } else {
-                nav.classList.remove('translate-x-full');
-                nav.classList.add('translate-x-0');
-                nav.style.pointerEvents = 'auto';
-            }
+            sideNav.classList.toggle('translate-x-full');
+            document.body.classList.toggle('overflow-hidden');
         }
-    </script>
+        mobileToggle.addEventListener('click', toggleMenu);
+        if (sideNavClose) sideNavClose.addEventListener('click', toggleMenu);
+        if (sideNavOverlay) sideNavOverlay.addEventListener('click', toggleMenu);
+    })();
+</script>
 </body></html>
