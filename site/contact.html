@@ -139,7 +139,7 @@
 <button class="p-2 text-on-surface-variant hover:text-primary-fixed-dim transition-colors" type="button" aria-label="Toggle theme">
 <span class="material-symbols-outlined" data-icon="dark_mode">dark_mode</span>
 </button>
-<a href="contact.html" class="hidden md:block bg-primary-fixed-dim text-on-primary px-6 py-2.5 rounded font-bold hover:brightness-110 active:scale-95 transition-all">Hire me</a>
+<a href="contact.html#contact-form" class="hidden md:block bg-primary-fixed-dim text-on-primary px-6 py-2.5 rounded font-bold hover:brightness-110 active:scale-95 transition-all">Hire me</a>
 <button class="md:hidden text-on-surface" id="mobile-menu-toggle" type="button" aria-label="Open menu">
 <span class="material-symbols-outlined" data-icon="menu">menu</span>
 </button>
@@ -175,7 +175,7 @@
 </div>
 <div class="mt-auto pt-6 border-t border-hairline">
 <p class="font-label-mono text-label-mono text-on-surface-variant mb-4">// Available for hire</p>
-<a href="contact.html" class="w-full bg-primary-fixed-dim text-on-primary p-4 rounded-lg font-bold text-center block">Hire me</a>
+<a href="contact.html#contact-form" class="w-full bg-primary-fixed-dim text-on-primary p-4 rounded-lg font-bold text-center block">Hire me</a>
 </div>
 </div>
 </div>
@@ -238,43 +238,48 @@
 </div>
 <!-- Form Content -->
 <div class="bg-surface border border-hairline p-8 lg:p-12 rounded-b-xl shadow-2xl relative overflow-hidden">
-<form class="space-y-8" id="contact-form" onsubmit="handleFormSubmit(event)">
+<form class="space-y-8" id="contact-form" name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" netlify action="/contact.html" onsubmit="handleFormSubmit(event)">
+<input type="hidden" name="form-name" value="contact" />
+<p class="hidden" aria-hidden="true"><label>Do not fill this out: <input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 <div class="space-y-2">
 <label class="font-label-mono text-[11px] text-primary-fixed-dim uppercase tracking-wider block">const sender_name =</label>
-<input class="w-full bg-surface-container/50 border border-hairline focus:border-terminal-cursor focus:ring-0 outline-none p-4 font-body-md text-on-surface rounded-lg transition-all placeholder:text-on-surface-variant/30" placeholder="'Your Name'" required="" type="text"/>
+<input name="name" class="w-full bg-surface-container/50 border border-hairline focus:border-terminal-cursor focus:ring-0 outline-none p-4 font-body-md text-on-surface rounded-lg transition-all placeholder:text-on-surface-variant/30" placeholder="'Your Name'" required="" type="text"/>
 </div>
 <div class="space-y-2">
 <label class="font-label-mono text-[11px] text-primary-fixed-dim uppercase tracking-wider block">const sender_email =</label>
-<input class="w-full bg-surface-container/50 border border-hairline focus:border-terminal-cursor focus:ring-0 outline-none p-4 font-body-md text-on-surface rounded-lg transition-all placeholder:text-on-surface-variant/30" placeholder="contact@taiwofadoyin.co.uk" required="" type="email"/>
+<input name="email" class="w-full bg-surface-container/50 border border-hairline focus:border-terminal-cursor focus:ring-0 outline-none p-4 font-body-md text-on-surface rounded-lg transition-all placeholder:text-on-surface-variant/30" placeholder="contact@taiwofadoyin.co.uk" required="" type="email"/>
 </div>
 </div>
 <div class="space-y-3">
 <label class="font-label-mono text-[11px] text-primary-fixed-dim uppercase tracking-wider block">const selection = [project_type]</label>
 <div class="flex flex-wrap gap-2">
 <label class="cursor-pointer">
-<input checked="" class="hidden peer" name="type" type="radio"/>
+<input checked="" class="hidden peer" name="project_type" type="radio" value="Web app"/>
 <div class="px-4 py-2 border border-hairline rounded-full text-center font-label-mono text-label-mono text-on-surface-variant peer-checked:bg-primary-fixed-dim peer-checked:border-primary-fixed-dim peer-checked:text-on-primary transition-all">WEB APP</div>
 </label>
 <label class="cursor-pointer">
-<input class="hidden peer" name="type" type="radio"/>
+<input class="hidden peer" name="project_type" type="radio" value="Design"/>
 <div class="px-4 py-2 border border-hairline rounded-full text-center font-label-mono text-label-mono text-on-surface-variant peer-checked:bg-primary-fixed-dim peer-checked:border-primary-fixed-dim peer-checked:text-on-primary transition-all">DESIGN</div>
 </label>
 <label class="cursor-pointer">
-<input class="hidden peer" name="type" type="radio"/>
+<input class="hidden peer" name="project_type" type="radio" value="Consulting"/>
 <div class="px-4 py-2 border border-hairline rounded-full text-center font-label-mono text-label-mono text-on-surface-variant peer-checked:bg-primary-fixed-dim peer-checked:border-primary-fixed-dim peer-checked:text-on-primary transition-all">CONSULTING</div>
 </label>
 </div>
 </div>
 <div class="space-y-2">
 <label class="font-label-mono text-[11px] text-primary-fixed-dim uppercase tracking-wider block">const message_body =</label>
-<textarea class="w-full bg-surface-container/50 border border-hairline focus:border-terminal-cursor focus:ring-0 outline-none p-4 font-body-md text-on-surface rounded-lg transition-all placeholder:text-on-surface-variant/30 resize-none" placeholder="'Your message goes here...'" required="" rows="4"></textarea>
+<textarea name="message" class="w-full bg-surface-container/50 border border-hairline focus:border-terminal-cursor focus:ring-0 outline-none p-4 font-body-md text-on-surface rounded-lg transition-all placeholder:text-on-surface-variant/30 resize-none" placeholder="'Your message goes here...'" required="" rows="4"></textarea>
 </div>
 <button class="w-full bg-primary-fixed-dim text-on-primary font-bold py-5 rounded-lg flex items-center justify-center gap-3 hover:bg-primary-fixed hover:gap-5 transition-all active:scale-[0.98]" type="submit">
                                     Send Transmission <span class="material-symbols-outlined">send</span>
 </button>
 </form>
 <!-- Success State (Hidden by default) -->
+<div class="hidden flex-col items-center justify-center p-8 mb-4 rounded-lg border border-error/40 bg-error/10 text-error" id="error-state">
+<p class="font-label-mono text-label-mono text-center">Transmission failed. Email <a class="underline" href="mailto:contact@taiwofadoyin.co.uk">contact@taiwofadoyin.co.uk</a> directly.</p>
+</div>
 <div class="absolute inset-0 bg-surface flex flex-col items-center justify-center p-12 text-center opacity-0 pointer-events-none transition-opacity duration-500" id="success-state">
 <div class="w-20 h-20 rounded-full bg-primary-fixed-dim flex items-center justify-center mb-6">
 <span class="material-symbols-outlined text-4xl text-on-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
@@ -323,5 +328,63 @@
         if (sideNavClose) sideNavClose.addEventListener('click', toggleMenu);
         if (sideNavOverlay) sideNavOverlay.addEventListener('click', toggleMenu);
     })();
+</script>
+<script id="contact-form-script">
+    function handleFormSubmit(e) {
+        e.preventDefault();
+        const form = document.getElementById('contact-form');
+        const success = document.getElementById('success-state');
+        const error = document.getElementById('error-state');
+        const button = form.querySelector('button[type="submit"]');
+        const originalContent = button.innerHTML;
+        button.innerHTML = '<span class="material-symbols-outlined animate-spin text-xl">progress_activity</span> Sending...';
+        button.disabled = true;
+        if (error) {
+            error.classList.add('hidden');
+            error.classList.remove('flex');
+        }
+
+        const data = new FormData(form);
+        fetch('/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: new URLSearchParams(data).toString()
+        })
+        .then(function (res) {
+            if (!res.ok) throw new Error('Submit failed');
+            form.style.opacity = '0';
+            success.classList.remove('pointer-events-none', 'opacity-0');
+            success.classList.add('opacity-100');
+        })
+        .catch(function () {
+            button.innerHTML = originalContent;
+            button.disabled = false;
+            if (error) {
+                error.classList.remove('hidden');
+                error.classList.add('flex');
+            }
+        });
+    }
+
+    function resetForm() {
+        const form = document.getElementById('contact-form');
+        const success = document.getElementById('success-state');
+        const error = document.getElementById('error-state');
+        const button = form.querySelector('button[type="submit"]');
+        form.reset();
+        form.style.opacity = '1';
+        button.innerHTML = 'Send Transmission <span class="material-symbols-outlined">send</span>';
+        button.disabled = false;
+        success.classList.add('pointer-events-none', 'opacity-0');
+        success.classList.remove('opacity-100');
+        if (error) {
+            error.classList.add('hidden');
+            error.classList.remove('flex');
+        }
+    }
+
+    if (window.location.hash === '#contact-form') {
+        document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
 </script>
 </body></html>
